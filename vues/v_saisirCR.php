@@ -50,8 +50,31 @@
                 <td>Bilan : </td>  
                 <td><textarea rows="5" cols="50"></textarea></td>           
              </tr>
-                                          
         </table>
+          
+          <h2>Eléments présentés</h2>
+          <table border="0">
+             <tr>
+                <td>Produit 1 : </td>  
+                <td><input type="text" name="prod1"></td>           
+             </tr>
+             <tr>
+                <td>Produit 2 : </td>  
+                <td><input type="text" name="prod2"></td>           
+             </tr>
+             <tr>
+                <td>Documentation offerte: </td>  
+                <td><input type="checkbox" name="doc" value="yes"></td>           
+             </tr>
+          </table>
+          
+          <h2>Echantillons</h2>
+          <table border="0">
+             <tr>
+                <td></td>  
+                <td></td>           
+             </tr>
+          </table>
       </div>
 </div>
      
