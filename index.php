@@ -4,7 +4,7 @@ require_once ("include/modele.inc.php");
 include("vues/v_entete.php") ;
 session_start();
 $pdo = PdoGsb::getPdoGsb();
-if(!isset($_REQUEST['do']) || (!isset($_SESSION['login']))){
+if(!isset($_REQUEST['uc']) || (!isset($_SESSION['login']))){
      $_REQUEST['uc'] = 'connexion';
 }	 
 $uc = $_REQUEST['uc'];
