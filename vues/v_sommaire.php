@@ -13,7 +13,7 @@
               <li class="smenu">
                    Comptes rendus 
            </li> 
-           <li class="smenu">
+           <li class="smenu"><!-- Lien vers les controleurs et les actions (s'il y en a) -->
               <a href="index.php?uc=gererCR&action=saisirCR" title="Nouveaux comptes rendus">Nouveaux</a>
            </li>
            <li class="smenu">
