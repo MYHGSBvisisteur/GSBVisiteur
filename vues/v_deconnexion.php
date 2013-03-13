@@ -1,3 +1,1 @@
-<ul>
-BYEBYE
-</ul>
+Aurevoir et à bientôt !!!
