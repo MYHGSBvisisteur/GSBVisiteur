@@ -30,6 +30,9 @@
               <li class="smenu">
                   <a href="index.php?uc=consulterPraticien" title="Consulter les praticiens">Praticiens</a>
               </li>
+           </ul>
+              
+           <ul>
               <li class="smenu">
                   <a href="index.php?uc=connexion&action=deconnexion" title="Se déconnecter">Déconnexion</a>
               </li>
