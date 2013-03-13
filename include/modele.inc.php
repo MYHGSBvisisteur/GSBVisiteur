@@ -85,5 +85,16 @@ class PdoGsb{
          $rs = PdoGsb::$monPdo->query($req);
 		$ligne = $rs->fetchAll(PDO::FETCH_ASSOC);
     }
+    
+    
+    
+    
+        public function getLesMedicaments() {
+     // retourne un tableau associatif contenant tous les informations sur tous les médicaments
+         $req="select * from medicament";
+         $rs = PdoGsb::$monPdo->query($req);
+	 $ligne = $rs->fetchAll(PDO::FETCH_ASSOC);
+         return $ligne;
+    }
 }   
   ?>
