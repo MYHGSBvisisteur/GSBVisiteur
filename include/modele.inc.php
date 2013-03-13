@@ -71,7 +71,7 @@ class PdoGsb{
     }
     
     public function getLesCR() {
-     // retourne un tableau associatif contenant tous les visiteurs
+     // retourne un tableau associatif contenant tous compte rendu
          $req="select * from compte_rendu";
          $rs = PdoGsb::$monPdo->query($req);
 		$ligne = $rs->fetchAll(PDO::FETCH_ASSOC);
@@ -80,7 +80,7 @@ class PdoGsb{
     }
     
     public function insererLesCR($num, $test) {
-     // retourne un tableau associatif contenant tous les visiteurs
+     // insère le compte rendu saisi dans la bd
          $req="INSERT INTO client(CR_NUM, CR_TEST)
              VALUES ('$num', '$test')";
          $rs = PdoGsb::$monPdo->query($req);
