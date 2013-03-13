@@ -2,6 +2,7 @@
     
       <h2>Rapport de visite </h2>
       
+      <form action="" method="POST">
         <table border="0">
              <tr>
                 <td>Numero : </td>  
@@ -78,5 +79,5 @@
           </table>
           
           <br><br>
-          
+      </form>
 </div>

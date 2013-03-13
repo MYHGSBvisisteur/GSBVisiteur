@@ -78,5 +78,12 @@ class PdoGsb{
 		return $ligne;
         // ou return $this->_pdo->query($query)->fetchAll(PDO::FETCH_ASSOC);
     }
+    
+    public function insererLesCR() {
+     // retourne un tableau associatif contenant tous les visiteurs
+         $req="insert into compte_rendu values''";
+         $rs = PdoGsb::$monPdo->query($req);
+		$ligne = $rs->fetchAll(PDO::FETCH_ASSOC);
+    }
 }   
   ?>
