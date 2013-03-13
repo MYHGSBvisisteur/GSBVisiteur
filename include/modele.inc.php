@@ -60,6 +60,7 @@ class PdoGsb{
 		$ligne = $rs->fetch(PDO::FETCH_ASSOC);
 		return $ligne;
         }
+        
    public function getLesVisiteurs() {
      // retourne un tableau associatif contenant tous les visiteurs
          $req="select vis_matricule, VIS_NOM, VIS_VILLE from visiteur";
@@ -68,6 +69,14 @@ class PdoGsb{
 		return $ligne;
         // ou return $this->_pdo->query($query)->fetchAll(PDO::FETCH_ASSOC);
     }
-
+    
+    public function getLesCR() {
+     // retourne un tableau associatif contenant tous les visiteurs
+         $req="select * from compte_rendu";
+         $rs = PdoGsb::$monPdo->query($req);
+		$ligne = $rs->fetchAll(PDO::FETCH_ASSOC);
+		return $ligne;
+        // ou return $this->_pdo->query($query)->fetchAll(PDO::FETCH_ASSOC);
+    }
 }   
   ?>

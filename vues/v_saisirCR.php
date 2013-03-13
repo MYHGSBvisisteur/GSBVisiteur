@@ -4,8 +4,9 @@
 ?>
 
 <div id="contenu">
+    
       <h2>Rapport de visite </h2>
-      <div class="corpsForm">
+      
         <table border="0">
              <tr>
                 <td>Numero : </td>  
@@ -50,8 +51,11 @@
                 <td><textarea rows="5" cols="50"></textarea></td>           
              </tr>
         </table>
+      
           <br/><br/>
+          
           <h2>Eléments présentés</h2>
+          
           <table border="0">
              <tr>
                 <td>Produit 1 : </td>  
@@ -66,15 +70,19 @@
                 <td><input type="checkbox" name="doc" value="yes"></td>           
              </tr>
           </table>
+          
           <br/><br/>
+          
           <h2>Echantillons</h2>
+          
           <table border="0">
              <tr>
                 <td></td>  
                 <td></td>           
              </tr>
           </table>
+          
           <br><br>
+          
           <input type="reset" value="Annuler"><input type="submit" value="Valider">
-      </div>
 </div>
