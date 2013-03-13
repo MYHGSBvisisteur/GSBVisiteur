@@ -30,7 +30,6 @@ switch($action){
 		break;
 	}
          case 'deconnexion':{
-            session_destroy();
             include("vues/v_deconnexion.php");
             include("vues/v_connexion.php");
             break;
