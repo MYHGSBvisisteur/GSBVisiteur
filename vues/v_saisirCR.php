@@ -78,5 +78,3 @@
           <input type="reset" value="Annuler"><input type="submit" value="Valider">
       </div>
 </div>
-     
-  
