@@ -5,6 +5,7 @@
 
 <?php
 
+
 foreach($lesMedicaments as $unMedicament)
 {
   
@@ -34,14 +35,14 @@ foreach($lesMedicaments as $unMedicament)
 
 <tr>
 <td><label for="compo">Composition:</label></td>
-<td><textarea id="compo"/>
+<td><textarea id="compo" rows="2" cols="35"/>
     <?php echo $composition; ?>
     </textarea></td>
 </tr>
 
 <tr>
 <td><label for="effe">Effets:</label></td>
-   <td> <textarea id="effe">
+   <td> <textarea id="effe" rows="7" cols="35">
     <?php echo $effets; ?>
     </textarea></td>
 </tr>
@@ -49,7 +50,7 @@ foreach($lesMedicaments as $unMedicament)
 
 <tr>
 <td><label for="contrIndi">Contre Indication:</label></td>
-    <td><textarea id="contrIndi">
+    <td><textarea id="contrIndi" rows="7" cols="35">
     <?php echo $contreIndication; ?>
     </textarea></td>
 </tr>
