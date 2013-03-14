@@ -97,5 +97,12 @@ class PdoGsb{
 	 $ligne = $rs->fetchAll(PDO::FETCH_ASSOC);
          return $ligne;
     }
-}   
+
+
+        public function getLesInfosPraticiens(){
+            // retourne les infos d'un praticien défini dans l'énoncé §les praticiens
+            $req ="";
+        
+        }
+}
   ?>
