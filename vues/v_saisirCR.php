@@ -35,7 +35,7 @@
                 <td><input type="checkbox" name="remplacant" value="yes"></td>           
              </tr>
              <tr>
-                <td>Date : </td>  
+                <td>Date du rapport: </td>  
                 <td><input type="text" name="date"></td>           
              </tr>
              <tr>
@@ -59,11 +59,17 @@
           <table border="0">
              <tr>
                 <td>Produit 1 : </td>  
-                <td><input type="text" name="prod1"></td>           
-             </tr>
-             <tr>
-                <td>Produit 2 : </td>  
-                <td><input type="text" name="prod2"></td>           
+                <td><SELECT name="produit" size="1">
+                    <?PHP foreach ($lesMedicaments as $ligne){
+                            echo "<OPTION VALUE='" .$ligne['MED_DEPOTLEGAL']. "'>" .$ligne['MED_NOMCOMMERCIAL']. "</OPTION>";
+                        }
+                        /*if (isset ($ligne) ){
+                            foreach ($lesMedicaments as $ligne){
+                            echo "<OPTION VALUE='" .$ligne['MED_DEPOTLEGAL']. "'>" .$ligne['MED_NOMCOMMERCIAL']. "</OPTION>";
+                            }
+                        }*/
+?>
+                    </SELECT></td>
              </tr>
              <tr>
                 <td>Documentation offerte: </td>  

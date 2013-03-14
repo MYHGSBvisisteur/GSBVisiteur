@@ -7,6 +7,7 @@ if(!isset($_REQUEST['action'])){
 
 $action = $_REQUEST['action'];
 $idVisiteur = $_SESSION['vis_matricule'];
+$lesMedicaments = $pdo-> getLesMedicaments();
 
 switch($action){
 	case 'consulterCR':{
