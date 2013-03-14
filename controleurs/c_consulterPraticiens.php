@@ -1,6 +1,6 @@
 <?php
 include("vues/v_sommaire.php");
-$lesInfosPraticiens = getLesInfosPraticiens();
-include("vues/v_lesPraticiens");
+$lesInfosPraticiens = $pdo->getLesInfosPraticiens();
+include("vues/v_lesPraticiens.php");
 
 ?>
