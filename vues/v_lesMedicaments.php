@@ -7,7 +7,7 @@
 
 foreach($lesMedicaments as $unMedicament)
 {
-    //len
+  
  $depot=$unMedicament['MED_DEPOTLEGAL'];
  $nomCommercial=$unMedicament['MED_NOMCOMMERCIAL'];
  $famille=$unMedicament['FAM_CODE'];
