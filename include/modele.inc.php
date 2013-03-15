@@ -87,9 +87,6 @@ class PdoGsb{
 		$ligne = $rs->fetch();
     }
     
-    
-    
-    
         public function getLesMedicaments() {
      // retourne un tableau associatif contenant tous les informations sur tous les médicaments
          $req="select * from medicament";
