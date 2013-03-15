@@ -1,4 +1,4 @@
-<div id="lePraticiens">
+<div id="lesPraticiens">
     <h2>Details Praticiens</h2>
     <table>
         <tr><th>Nom</th><th>Prenom</th><th>Adresse</th><th>Ville</th><th>Fonction</th><th>Lieu</th><th>Coeff</th></tr>        
