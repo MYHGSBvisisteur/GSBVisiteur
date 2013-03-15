@@ -5,65 +5,67 @@
 
 <?php
 
-
+$i=0;
 foreach($lesMedicaments as $unMedicament)
 {
   
- $depot=$unMedicament['MED_DEPOTLEGAL'];
- $nomCommercial=$unMedicament['MED_NOMCOMMERCIAL'];
- $famille=$unMedicament['FAM_CODE'];
- $composition=$unMedicament['MED_COMPOSITION'];
- $effets=$unMedicament['MED_EFFETS'];
- $contreIndication=$unMedicament['MED_CONTREINDIC'];
- $prix=$unMedicament['MED_PRIXECHANTILLON'];
-}
+ $depot[$i]=$unMedicament['MED_DEPOTLEGAL'];
+ $nomCommercial[$i]=$unMedicament['MED_NOMCOMMERCIAL'];
+ $famille[$i]=$unMedicament['FAM_CODE'];
+ $composition[$i]=$unMedicament['MED_COMPOSITION'];
+ $effets[$i]=$unMedicament['MED_EFFETS'];
+ $contreIndication[$i]=$unMedicament['MED_CONTREINDIC'];
+ $prix[$i]=$unMedicament['MED_PRIXECHANTILLON'];
 
+$i++;
+}
 ?>
 
+<?php for($i=0;$i<=5;$i++)
+{
+    
+?>
 <table>
 <tr>
-<td><label for="deplegal">Dépot légal:</label></td><td><input type="text" id="deplegal" value="<?php echo $depot; ?>"/></td>
+<td>Dépot légal:</td><td><?php echo $depot[$i]; ?></td>
 </tr>
 <tr>
-<td><label for="nomComm">Nom commercial:</label></td><td><input type="text" id="nomComm"  value="<?php echo $nomCommercial; ?>"/></td>
-</tr>
-
-<tr>
-<td><label for="fam">Famille:</label></td><td><input type="text" id="fam" value="<?php echo $famille; ?>"/></td>
-</tr>
-
-
-<tr>
-<td><label for="compo">Composition:</label></td>
-<td><textarea id="compo" rows="2" cols="35"/>
-    <?php echo $composition; ?>
-    </textarea></td>
+<td>Nom commercial:</td><td><?php echo $nomCommercial[$i]; ?></td>
 </tr>
 
 <tr>
-<td><label for="effe">Effets:</label></td>
-   <td> <textarea id="effe" rows="7" cols="35">
-    <?php echo $effets; ?>
-    </textarea></td>
+<td>Famille:</td><td><?php echo $famille[$i]; ?></td>
 </tr>
 
 
 <tr>
-<td><label for="contrIndi">Contre Indication:</label></td>
-    <td><textarea id="contrIndi" rows="7" cols="35">
-    <?php echo $contreIndication; ?>
-    </textarea></td>
+<td>Composition:</td>
+<td><?php echo $composition[$i]; ?>/td>
+</tr>
+
+<tr>
+<td>Effets:</td>
+   <td>  <?php echo $effets[$i]; ?></td>
 </tr>
 
 
 <tr>
-<td><label for="prixEch">Prix échantillon:</label></td><td><input type="text" id="prixEch" value="<?php echo $prix; ?>"/></td>
+<td>Contre Indication:</td>
+    <td>    <?php echo $contreIndication[$i]; ?></td>
+</tr>
+
+
+<tr>
+<td>Prix échantillon:</td><td><?php echo $prix[$i]; ?></td>
 </tr>
 
 <tr>
 <td>
-<form action="" method="">
+<form action="<?php echo "http://127.0.0.1/hasan/GSBVisiteur-master/index.php?uc=consulterMedicament'.$i--"; ?>" method="get">
 <input type="submit" value="<"/>
+</form>
+    
+<form action="http://127.0.0.1/hasan/GSBVisiteur-master/index.php?uc=consulterMedicament" method="get">
 <input type="submit" value=">"/></td>
 </form>
 </tr>
@@ -71,4 +73,5 @@ foreach($lesMedicaments as $unMedicament)
 </table>  
 
 </div>
-    
+ 
+<?php } ?>
