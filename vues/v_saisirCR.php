@@ -27,7 +27,7 @@
              </tr>
              <tr>
                 <td>Coefficient : </td>  
-                <td><input type="text" name="coeff"></td>           
+                <td><input type="text" name="coeff"><?PHP echo $ligne['PRA_COEFNOTORIETE'] ?></td>           
              </tr>
              <tr>
                 <td>Remplacant : </td>  
