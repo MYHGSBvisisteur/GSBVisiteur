@@ -12,12 +12,12 @@ $lesPraticiens = $pdo-> getLesInfosPraticiens();
 
 switch($action){
 	case 'consulterCR':{
-		//$lesCR=$pdo-> getLesCR();
+		$lesCR=$pdo-> getLesCR();
                 include("vues/v_consulterCR.php");
 		break;
 	}
         case 'saisirCR':{
-		//$lesCR=$pdo-> getLesProjetsEnDetail();
+		//$lesCR=$pdo-> insererLesCR();
                 include("vues/v_saisirCR.php");
 		break;
 	}

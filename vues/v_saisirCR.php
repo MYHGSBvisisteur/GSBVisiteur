@@ -50,7 +50,7 @@
                     <OPTION selected>Périodicité
                     <OPTION>
                     <OPTION>
-                    </SELECT></td>
+                    </SELECT><input type="text" name="motif"></td>
              </tr>
              <tr>
                 <td>Bilan : </td>  

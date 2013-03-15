@@ -2,49 +2,38 @@
     
       <h2>Rapport de visite </h2>
       
-      <form action="" method="POST">
         <table border="0">
              <tr>
                 <td>Numero : </td>  
-                <td><input type="text" name="num" spaceholder="Votre numéro"></td>           
+                <td><?PHP $lesCR['PRA_NUM']; ?></td>
              </tr>
              <tr>
                 <td>Date visite : </td>  
-                <td><input type="text" name="dateVisite"></td>           
+                <td><input type="text" name="dateVisite"></td>
              </tr>
              <tr>
                 <td>Praticien : </td>  
-                <td><SELECT name="praticien" size="1">
-                    <OPTION>lundi
-                    <OPTION>mardi
-                    <OPTION selected>mercredi
-                    <OPTION>jeudi
-                    <OPTION>vendredi
-                    </SELECT></td>           
+                <td><?PHP $lesCR['PRA_NOM']; ?></td>
              </tr>
              <tr>
                 <td>Coefficient : </td>  
-                <td><input type="text" name="coeff"></td>           
+                <td><?PHP $lesCR['PRA_COEFNOTORIETE']; ?></td>
              </tr>
              <tr>
                 <td>Remplacant : </td>  
-                <td><input type="checkbox" name="remplacant" value="yes"></td>           
+                <td><?PHP $lesCR['RAP_REMPLACANT']; ?></td>           
              </tr>
              <tr>
                 <td>Date : </td>  
-                <td><input type="text" name="date"></td>           
+                <td><?PHP $lesCR['RAP_DATE']; ?></td>           
              </tr>
              <tr>
                 <td>Motif : </td>  
-                <td><SELECT name="praticien" size="1">
-                    <OPTION selected>Périodicité
-                    <OPTION>
-                    <OPTION>
-                    </SELECT></td>
+                <td><?PHP $lesCR['RAP_MOTIF']; ?></td>
              </tr>
              <tr>
                 <td>Bilan : </td>  
-                <td><textarea rows="5" cols="50"></textarea></td>           
+                <td><?PHP $lesCR['RAP_BILAN']; ?></td>           
              </tr>
         </table>
       
@@ -55,15 +44,11 @@
           <table border="0">
              <tr>
                 <td>Produit 1 : </td>  
-                <td><input type="text" name="prod1"></td>           
-             </tr>
-             <tr>
-                <td>Produit 2 : </td>  
-                <td><input type="text" name="prod2"></td>           
+                <td><?PHP $lesCR['MED_NOMCOMMERCIAL']; ?></td>
              </tr>
              <tr>
                 <td>Documentation offerte: </td>  
-                <td><input type="checkbox" name="doc" value="yes"></td>           
+                <td>Oui ou Non</td>           
              </tr>
           </table>
           
@@ -79,5 +64,4 @@
           </table>
           
           <br><br>
-      </form>
 </div>
