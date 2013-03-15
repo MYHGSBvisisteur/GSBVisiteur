@@ -55,7 +55,9 @@ body{
 */
   height:27em;
 }
-
+#lesPraticiens th{
+    background-color: deepskyblue;
+}
 /* pour r�tablir le mauvais effet sur les nav. modernes */
 html>body #contenu{
   height:auto;
