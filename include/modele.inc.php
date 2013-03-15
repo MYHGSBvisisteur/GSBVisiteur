@@ -70,9 +70,12 @@ class PdoGsb{
         // ou return $this->_pdo->query($query)->fetchAll(PDO::FETCH_ASSOC);
     }
     
-    public function getLesCR() {
+    public function getLesCR() {//Slect que les données dont on a besoin dans un CR. Pra_Num présent dans pra et rapportV donc alias
      // retourne un tableau associatif contenant tous compte rendu
-         $req="select * from compte_rendu";
+         $req="SELECT R.RAP_NUM, RAP_DATE, RAP_BILAN, RAP_MOTIF, P.PRA_NUM, PRA_NOM, PRA_COEFNOTORIETE, MED_NOMCOMMERCIAL
+               FROM rapport_visite R, praticien P, medicament M, offrir O
+               WHERE P.PRA_NUM = R.PRA_NUM 
+               AND  O.MED_DEPOTLEGAL = M.MED_DEPOTLEGAL";
          $rs = PdoGsb::$monPdo->query($req);
 		$ligne = $rs->fetchAll(PDO::FETCH_ASSOC);
 		return $ligne;
@@ -81,8 +84,8 @@ class PdoGsb{
     
     public function insererLesCR($num, $test) {
      // insère le compte rendu saisi dans la bd
-         $req="INSERT INTO client(CR_NUM, CR_TEST)
-             VALUES ('$num', '$test')";
+         $req="INSERT INTO rapport_visite(RAP_NUM, RAP_DATE, RAP_BILAN, RAP_MOTIF)
+             VALUES ('$num', '$date', '$bilan', '$motif')";
          $rs = PdoGsb::$monPdo->query($req);
 		$ligne = $rs->fetch();
     }

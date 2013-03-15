@@ -27,11 +27,18 @@
              </tr>
              <tr>
                 <td>Coefficient : </td>  
-                <td><input type="text" name="coeff"><?PHP echo $ligne['PRA_COEFNOTORIETE'] ?></td>           
+                <td><input type="text" name="coeff" value="<?PHP echo $ligne['PRA_COEFNOTORIETE'] ?>"></td>           
              </tr>
              <tr>
                 <td>Remplacant : </td>  
-                <td><input type="checkbox" name="remplacant" value="yes"></td>           
+                <td><input type="checkbox" name="remplacant" value="yes">
+                <SELECT name="praticien2" size="1">
+                    <?PHP foreach ($lesPraticiens as $ligne){
+                            echo "<OPTION VALUE='" .$ligne['PRA_NUM']. "'>" .$ligne['PRA_NOM']. "</OPTION>";
+                        }
+                    ?>
+                    </SELECT>
+                </td>           
              </tr>
              <tr>
                 <td>Date du rapport: </td>  
