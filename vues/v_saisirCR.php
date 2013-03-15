@@ -19,12 +19,11 @@
              <tr>
                 <td>Praticien : </td>  
                 <td><SELECT name="praticien" size="1">
-                    <OPTION>lundi
-                    <OPTION>mardi
-                    <OPTION selected>mercredi
-                    <OPTION>jeudi
-                    <OPTION>vendredi
-                    </SELECT></td>           
+                    <?PHP foreach ($lesPraticiens as $ligne){
+                            echo "<OPTION VALUE='" .$ligne['PRA_NUM']. "'>" .$ligne['PRA_NOM']. "</OPTION>";
+                        }
+                    ?>
+                    </SELECT></td>          
              </tr>
              <tr>
                 <td>Coefficient : </td>  
@@ -40,7 +39,7 @@
              </tr>
              <tr>
                 <td>Motif : </td>  
-                <td><SELECT name="praticien" size="1">
+                <td><SELECT name="motif" size="1">
                     <OPTION selected>Périodicité
                     <OPTION>
                     <OPTION>
