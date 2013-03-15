@@ -72,10 +72,11 @@ class PdoGsb{
     
     public function getLesCR() {//Slect que les données dont on a besoin dans un CR. Pra_Num présent dans pra et rapportV donc alias
      // retourne un tableau associatif contenant tous compte rendu
-         $req="SELECT DISCTINCT R.RAP_NUM, RAP_DATE, RAP_BILAN, RAP_MOTIF, P.PRA_NUM, PRA_NOM, PRA_COEFNOTORIETE, MED_NOMCOMMERCIAL
+         $req="SELECT R.RAP_NUM, RAP_DATE, RAP_BILAN, RAP_MOTIF, P.PRA_NUM, PRA_NOM, PRA_COEFNOTORIETE, MED_NOMCOMMERCIAL
                FROM rapport_visite R, praticien P, medicament M, offrir O
                WHERE P.PRA_NUM = R.PRA_NUM 
-               AND  O.MED_DEPOTLEGAL = M.MED_DEPOTLEGAL";
+               AND  O.MED_DEPOTLEGAL = M.MED_DEPOTLEGAL
+               GROUP BY R.RAP_NUM";
          $rs = PdoGsb::$monPdo->query($req);
 		$ligne = $rs->fetchAll(PDO::FETCH_ASSOC);
 		return $ligne;

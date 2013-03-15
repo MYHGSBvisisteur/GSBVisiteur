@@ -68,13 +68,15 @@
                 <td><SELECT name="produit" size="1">
                     <?PHP foreach ($lesMedicaments as $ligne){
                             echo "<OPTION VALUE='" .$ligne['MED_DEPOTLEGAL']. "'>" .$ligne['MED_NOMCOMMERCIAL']. "</OPTION>";
-                        }
-                        /*if (isset ($ligne) ){
-                            foreach ($lesMedicaments as $ligne){
+                        }?>
+                    </SELECT></td>
+             </tr>
+             <tr>
+                <td>Produit 2 : </td>  
+                <td><SELECT name="produit" size="1">
+                    <?PHP foreach ($lesMedicaments as $ligne){
                             echo "<OPTION VALUE='" .$ligne['MED_DEPOTLEGAL']. "'>" .$ligne['MED_NOMCOMMERCIAL']. "</OPTION>";
-                            }
-                        }*/
-?>
+                        }?>
                     </SELECT></td>
              </tr>
              <tr>

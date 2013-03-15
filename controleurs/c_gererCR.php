@@ -12,7 +12,8 @@ $lesPraticiens = $pdo-> getLesInfosPraticiens();
 
 switch($action){
 	case 'consulterCR':{
-		$lesCR=$pdo-> getLesCR();
+		$lesCR = $pdo-> getLesCR();
+                //var_dump($lesCR);
                 include("vues/v_consulterCR.php");
 		break;
 	}
