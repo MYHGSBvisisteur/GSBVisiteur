@@ -110,5 +110,25 @@ class PdoGsb{
 	    $ligne = $rs->fetchAll(PDO::FETCH_ASSOC);
             return $ligne;
         }
+        //Trier par ville pour l'affichage
+        public function getLesInfosPraticiensParVille(){
+            $req ="select PRA_NOM,PRA_PRENOM,PRA_ADRESSE,PRA_VILLE,PRA_COEFNOTORIETE,TYP_LIBELLE,TYP_LIEU,PRA_NUM
+                   from praticien p, type_praticien t
+                   where p.TYP_CODE = t.TYP_CODE
+                   order by PRA_VILLE";
+            $rs = PdoGsb::$monPdo->query($req);
+	    $ligne = $rs->fetchAll(PDO::FETCH_ASSOC);
+            return $ligne;
+        }
+        public function getInfosPraticien($idPraticien){
+            $req ="select PRA_NOM,PRA_PRENOM,PRA_ADRESSE,PRA_VILLE,PRA_COEFNOTORIETE,TYP_LIBELLE,TYP_LIEU
+                   from praticien p, type_praticien t
+                   where PRA_NUM = $idPraticien
+                   and p.TYP_CODE = t.TYP_CODE";
+            
+            $rs = PdoGsb::$monPdo->query($req);
+	    $ligne = $rs->fetch();
+            return $ligne;
+        }
 }
   ?>
