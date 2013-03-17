@@ -102,7 +102,7 @@ class PdoGsb{
 
         public function getLesInfosPraticiens(){
             // retourne les infos d'un praticien défini dans l'énoncé §les praticiens
-            $req ="select PRA_NOM,PRA_PRENOM,PRA_ADRESSE,PRA_VILLE,PRA_COEFNOTORIETE,TYP_LIBELLE,TYP_LIEU, PRA_NUM
+            $req ="select PRA_NOM,PRA_PRENOM,PRA_ADRESSE,PRA_VILLE,PRA_COEFNOTORIETE,TYP_LIBELLE,TYP_LIEU,PRA_NUM
                    from praticien p, type_praticien t
                    where p.TYP_CODE = t.TYP_CODE
                    order by PRA_NOM";
