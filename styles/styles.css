@@ -240,7 +240,8 @@ taille de caract�res l�g�rement sup�rieure � la normale */
 } 
 
 #contenu td {
-   /*border :1px solid #777777;*/
+   border :1px solid #77AADD;
+   padding:5px;
 }
 
 #contenu h3 {

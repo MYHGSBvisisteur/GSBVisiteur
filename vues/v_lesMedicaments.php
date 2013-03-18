@@ -1,74 +1,89 @@
-<div id="lesMedicaments">
+<div id="contenu">
     
 
 <h2>Pharmacopee</h2>
 
 <?php
 
-
+$i=1;
 foreach($lesMedicaments as $unMedicament)
 {
   
- $depot=$unMedicament['MED_DEPOTLEGAL'];
- $nomCommercial=$unMedicament['MED_NOMCOMMERCIAL'];
- $famille=$unMedicament['FAM_CODE'];
- $composition=$unMedicament['MED_COMPOSITION'];
- $effets=$unMedicament['MED_EFFETS'];
- $contreIndication=$unMedicament['MED_CONTREINDIC'];
- $prix=$unMedicament['MED_PRIXECHANTILLON'];
+ $depot[$i]=$unMedicament['MED_DEPOTLEGAL'];
+ $nomCommercial[$i]=$unMedicament['MED_NOMCOMMERCIAL'];
+ $famille[$i]=$unMedicament['FAM_CODE'];
+ $composition[$i]=$unMedicament['MED_COMPOSITION'];
+ $effets[$i]=$unMedicament['MED_EFFETS'];
+ $contreIndication[$i]=$unMedicament['MED_CONTREINDIC'];
+ $prix[$i]=$unMedicament['MED_PRIXECHANTILLON'];
+
+$i++;
 }
 
+//on récupère le cpt de l'url
+
+if(empty($_REQUEST['cpt']))
+{
+    $k=1;
+
+    
+    
+}else{
+$k=$_REQUEST['cpt'];
+}
 ?>
+
 
 <table>
 <tr>
-<td><label for="deplegal">Dépot légal:</label></td><td><input type="text" id="deplegal" value="<?php echo $depot; ?>"/></td>
+<th>Dépot légal:</th><td><?php echo $depot[$k]; ?></td>
 </tr>
 <tr>
-<td><label for="nomComm">Nom commercial:</label></td><td><input type="text" id="nomComm"  value="<?php echo $nomCommercial; ?>"/></td>
-</tr>
-
-<tr>
-<td><label for="fam">Famille:</label></td><td><input type="text" id="fam" value="<?php echo $famille; ?>"/></td>
-</tr>
-
-
-<tr>
-<td><label for="compo">Composition:</label></td>
-<td><textarea id="compo" rows="2" cols="35"/>
-    <?php echo $composition; ?>
-    </textarea></td>
+<th>Nom commercial:</th><td><?php echo $nomCommercial[$k]; ?></td>
 </tr>
 
 <tr>
-<td><label for="effe">Effets:</label></td>
-   <td> <textarea id="effe" rows="7" cols="35">
-    <?php echo $effets; ?>
-    </textarea></td>
+<th>Famille:</th><td><?php echo $famille[$k]; ?></td>
 </tr>
 
 
 <tr>
-<td><label for="contrIndi">Contre Indication:</label></td>
-    <td><textarea id="contrIndi" rows="7" cols="35">
-    <?php echo $contreIndication; ?>
-    </textarea></td>
+<th>Composition:</th>
+<td><?php echo $composition[$k]; ?></td>
+</tr>
+
+<tr>
+<th>Effets:</th>
+   <td>  <?php echo $effets[$k]; ?></td>
 </tr>
 
 
 <tr>
-<td><label for="prixEch">Prix échantillon:</label></td><td><input type="text" id="prixEch" value="<?php echo $prix; ?>"/></td>
+<th>Contre Indication:</th>
+    <td>    <?php echo $contreIndication[$k]; ?></td>
 </tr>
 
+
 <tr>
+<th>Prix échantillon:</th><td><?php echo $prix[$k]; ?></td>
+</tr>
+
+<!--<tr>
 <td>
-<form action="" method="">
-<input type="submit" value="<"/>
-<input type="submit" value=">"/></td>
-</form>
-</tr>
+    <a href="index.php?uc=consulterMedicament&action=precedent&cpt=<?php //echo $k-1 ?>"><input type="button" value="Précedent"></a>
+   </td>
+   <td>
+     <a href="index.php?uc=consulterMedicament&action=suivant&cpt=<?php // echo $k+1 ?>"><input type="button" value="Suivant"/></a>
+</td>
+</tr>-->
     
 </table>  
 
+<a href="index.php?uc=consulterMedicaments&action=precedent&cpt=<?php if($k<=1){echo $k=28;}else{ echo $k-1;} ?>"><input type="button" value="Précedent"></a>
+
+<a href="index.php?uc=consulterMedicaments&action=suivant&cpt=<?php if($k>=28){echo $k=1;} else { echo $k+1;}   ?>"><input type="button" value="Suivant"/></a>
+
+
+
 </div>
-    
+ 
