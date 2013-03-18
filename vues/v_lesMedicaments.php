@@ -5,7 +5,7 @@
 
 <?php
 
-$i=0;
+$i=1;
 foreach($lesMedicaments as $unMedicament)
 {
   
@@ -21,9 +21,13 @@ $i++;
 }
 
 //on récupère le cpt de l'url
-if(!isset($_REQUEST['cpt']))
+
+if(empty($_REQUEST['cpt']))
 {
-    $k=0;
+    $k=1;
+
+    
+    
 }else{
 $k=$_REQUEST['cpt'];
 }
@@ -66,19 +70,18 @@ $k=$_REQUEST['cpt'];
 
 <!--<tr>
 <td>
-    <a href="index.php?uc=consulterMedicament&action=precedent&cpt=<?php echo $k-1 ?>"><input type="button" value="Précedent"></a>
+    <a href="index.php?uc=consulterMedicament&action=precedent&cpt=<?php //echo $k-1 ?>"><input type="button" value="Précedent"></a>
    </td>
    <td>
-     <a href="index.php?uc=consulterMedicament&action=suivant&cpt=<?php echo $k+1 ?>"><input type="button" value="Suivant"/></a>
+     <a href="index.php?uc=consulterMedicament&action=suivant&cpt=<?php // echo $k+1 ?>"><input type="button" value="Suivant"/></a>
 </td>
 </tr>-->
     
 </table>  
 
-<a href="index.php?uc=consulterMedicament&action=precedent&cpt=<?php if($k<=0){echo $k=27;}else{ echo $k-1;} ?>"><input type="button" value="Précedent"></a>
+<a href="index.php?uc=consulterMedicaments&action=precedent&cpt=<?php if($k<=1){echo $k=28;}else{ echo $k-1;} ?>"><input type="button" value="Précedent"></a>
 
-<a href="index.php?uc=consulterMedicament&action=suivant&cpt=<?php if($k>=27){echo $k=1;}else{ echo $k+1;}   ?>"><input type="button" value="Suivant"/></a>
-
+<a href="index.php?uc=consulterMedicaments&action=suivant&cpt=<?php if($k>=28){echo $k=1;} else { echo $k+1;}   ?>"><input type="button" value="Suivant"/></a>
 
 
 
