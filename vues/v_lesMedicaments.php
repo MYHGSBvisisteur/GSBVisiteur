@@ -22,7 +22,7 @@ $i++;
 
 //on récupère le cpt de l'url
 
-if(empty($_REQUEST['cpt']))
+if(!isset($_REQUEST['cpt']))
 {
     $k=1;
 
@@ -79,9 +79,9 @@ $k=$_REQUEST['cpt'];
     
 </table>  
 
-<a href="index.php?uc=consulterMedicaments&action=precedent&cpt=<?php if($k<=1){echo $k=28;}else{ echo $k-1;} ?>"><input type="button" value="Précedent"></a>
+<a href="index.php?uc=consulterMedicament&action=precedent&cpt=<?php if($k<=1){echo $k=count($lesMedicaments);}else{ echo $k-1;} ?>"> <input type="button" value="Précedent"></a>
 
-<a href="index.php?uc=consulterMedicaments&action=suivant&cpt=<?php if($k>=28){echo $k=1;} else { echo $k+1;}   ?>"><input type="button" value="Suivant"/></a>
+<a href="index.php?uc=consulterMedicament&action=suivant&cpt=<?php if($k>=count($lesMedicaments)){echo $k=1;} else { echo $k+1;} ?>"><input type="button" value="Suivant"/></a>
 
 
 
