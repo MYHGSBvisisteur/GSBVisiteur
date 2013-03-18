@@ -1,6 +1,6 @@
 <div id="contenu">
     
-      <h2>Rapport de visite </h2>
+      
       
       
       
@@ -9,6 +9,9 @@
       
       //while ($ligne = $rs->fetchAll(PDO::FETCH_ASSOC);){   
       for ($i=0;$i<2;$i++){?>
+    
+    <h2>Rapport de visite </h2>
+    
         <table border="0">
             
              <tr>
@@ -75,7 +78,13 @@
              </tr>
           </table>
           
-          <input type="submit" value="Précedent"><input type="submit" value="Suivant">
+          <input type="button" name="precedent" value="precedent" onclick="self.location.href='http://localhost/MVC%20Netbeans/GSB_MVC_Visiteurs/index.php?uc=gererCR&action=consulterCR&Plus=precedent'" style="background-color:#3cb371" style="color:white; font-weight:bold"onclick>
+          <input type="button" name="suivant" value="suivant" onclick="self.location.href='http://localhost/MVC%20Netbeans/GSB_MVC_Visiteurs/index.php?uc=gererCR&action=consulterCR&Plus=suivant'" style="background-color:#3cb371" style="color:white; font-weight:bold"onclick>
+          
+          <!--<form action="" method="">
+            <input type="submit" value="<"/>
+            <input type="submit" value=">"/>
+          </form>-->
           
           <?PHP //$i++; 
           } ?>
