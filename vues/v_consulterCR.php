@@ -1,12 +1,7 @@
 <div id="contenu">
     
-      
-      
-      
-      
       <?PHP
       //$i=0;
-      
       //while ($ligne = $rs->fetchAll(PDO::FETCH_ASSOC);){   
       for ($i=0;$i<2;$i++){?>
     
@@ -78,8 +73,8 @@
              </tr>
           </table>
           
-          <input type="button" name="precedent" value="precedent" onclick="self.location.href='http://localhost/MVC%20Netbeans/GSB_MVC_Visiteurs/index.php?uc=gererCR&action=consulterCR&Plus=precedent'" style="background-color:#3cb371" style="color:white; font-weight:bold"onclick>
-          <input type="button" name="suivant" value="suivant" onclick="self.location.href='http://localhost/MVC%20Netbeans/GSB_MVC_Visiteurs/index.php?uc=gererCR&action=consulterCR&Plus=suivant'" style="background-color:#3cb371" style="color:white; font-weight:bold"onclick>
+          <input type="button" value="precedent" onclick="self.location.href='http://localhost/MVC%20Netbeans/GSB_MVC_Visiteurs/index.php?uc=gererCR&action=consulterCR&page<?PHP $i - 1?>'"onclick>
+          <input type="button" value="suivant" onclick="self.location.href='http://localhost/MVC%20Netbeans/GSB_MVC_Visiteurs/index.php?uc=gererCR&action=consulterCR&page<?PHP $i + 1?>'"onclick>
           
           <!--<form action="" method="">
             <input type="submit" value="<"/>

@@ -70,8 +70,8 @@ class PdoGsb{
         // ou return $this->_pdo->query($query)->fetchAll(PDO::FETCH_ASSOC);
     }
     
-    public function getLesCR() {//Slect que les données dont on a besoin dans un CR. Pra_Num présent dans pra et rapportV donc alias
-     // retourne un tableau associatif contenant tous compte rendu
+    public function getLesCR() {//Slect que les données dont on a besoin pour consulter un CR. Pra_Num présent dans pra et rapportV donc alias
+     // retourne un tableau associatif contenant tous les comptes rendus
          $req="SELECT R.RAP_NUM, RAP_DATE, RAP_BILAN, RAP_MOTIF, P.PRA_NUM, PRA_NOM, PRA_COEFNOTORIETE, MED_NOMCOMMERCIAL
                FROM rapport_visite R, praticien P, medicament M, offrir O
                WHERE P.PRA_NUM = R.PRA_NUM 

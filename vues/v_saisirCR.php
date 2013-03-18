@@ -47,9 +47,10 @@
              <tr>
                 <td>Motif : </td>  
                 <td><SELECT name="motif" size="1">
-                    <OPTION selected>Périodicité
-                    <OPTION>
-                    <OPTION>
+                    <OPTION>Périodicité
+                    <OPTION>Actualisation annuelle
+                    <OPTION>Rapport Annuel
+                    <OPTION>Baisse activité
                     </SELECT><input type="text" name="motif"></td>
              </tr>
              <tr>
