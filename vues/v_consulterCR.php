@@ -1,9 +1,11 @@
 <div id="contenu">
     
-      <?PHP
-      //$i=0;
-      //while ($ligne = $rs->fetchAll(PDO::FETCH_ASSOC);){   
-      for ($i=0;$i<2;$i++){?>
+      <?PHP 
+      //for ($i=0;$i<2;$i++){
+          
+      foreach ($lesCR as $ligne){
+          $i=0;
+?>
     
     <h2>Rapport de visite </h2>
     
@@ -11,7 +13,7 @@
             
              <tr>
                 <td>Numero : </td>  
-                <td><?PHP echo $lesCR[$i]['PRA_NUM']; ?></td>
+                <td><?PHP echo $lesCR[$i]['RAP_NUM']; ?></td>
              </tr>
              <tr>
                 <td>Date visite : </td>  
@@ -73,15 +75,15 @@
              </tr>
           </table>
           
-          <input type="button" value="precedent" onclick="self.location.href='http://localhost/MVC%20Netbeans/GSB_MVC_Visiteurs/index.php?uc=gererCR&action=consulterCR&page<?PHP $i - 1?>'"onclick>
-          <input type="button" value="suivant" onclick="self.location.href='http://localhost/MVC%20Netbeans/GSB_MVC_Visiteurs/index.php?uc=gererCR&action=consulterCR&page<?PHP $i + 1?>'"onclick>
+          <input type="button" value="precedent" onclick="self.location.href='http://localhost/MVC%20Netbeans/GSB_MVC_Visiteurs/index.php?uc=gererCR&action=consulterCR&page<?PHP echo $i - 1 ?>'"onclick>
+          <input type="button" value="suivant" onclick="self.location.href='http://localhost/MVC%20Netbeans/GSB_MVC_Visiteurs/index.php?uc=gererCR&action=consulterCR&page<?PHP echo $i + 1 ?>'"onclick>
           
           <!--<form action="" method="">
             <input type="submit" value="<"/>
             <input type="submit" value=">"/>
           </form>-->
           
-          <?PHP //$i++; 
+          <?PHP $i++;
           } ?>
           
           <br><br>
