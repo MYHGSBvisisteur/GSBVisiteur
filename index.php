@@ -12,7 +12,7 @@ switch($uc){
 	case 'connexion':{
 		include("controleurs/c_connexion.php");break;
 	}
-        case 'consulterMedicaments' :{
+        case 'consulterMedicament' :{
 		include("controleurs/c_consulterMedicaments.php");break;
 	}
 	case 'consulterPraticien' :{
