@@ -5,7 +5,7 @@
 
 <?php
 
-$i=0;
+$i=1;
 foreach($lesMedicaments as $unMedicament)
 {
   
@@ -19,6 +19,18 @@ foreach($lesMedicaments as $unMedicament)
 
 $i++;
 }
+
+//on récupère le cpt de l'url
+
+if(!isset($_REQUEST['cpt']))
+{
+    $k=1;
+
+    
+    
+}else{
+$k=$_REQUEST['cpt'];
+}
 ?>
 
 
@@ -27,43 +39,51 @@ $i++;
 <th>Dépot légal:</th><td><?php echo $depot[$k]; ?></td>
 </tr>
 <tr>
-<td>Nom commercial:</td><td><?php echo $nomCommercial[$k]; ?></td>
+<th>Nom commercial:</th><td><?php echo $nomCommercial[$k]; ?></td>
 </tr>
 
 <tr>
-<td>Famille:</td><td><?php echo $famille[$k]; ?></td>
+<th>Famille:</th><td><?php echo $famille[$k]; ?></td>
 </tr>
 
 
 <tr>
-<td>Composition:</td>
+<th>Composition:</th>
 <td><?php echo $composition[$k]; ?></td>
 </tr>
 
 <tr>
-<td>Effets:</td>
+<th>Effets:</th>
    <td>  <?php echo $effets[$k]; ?></td>
 </tr>
 
 
 <tr>
-<td>Contre Indication:</td>
+<th>Contre Indication:</th>
     <td>    <?php echo $contreIndication[$k]; ?></td>
 </tr>
 
 
 <tr>
-<td>Prix échantillon:</td><td><?php echo $prix[$k]; ?></td>
+<th>Prix échantillon:</th><td><?php echo $prix[$k]; ?></td>
 </tr>
 
-<tr>
+<!--<tr>
 <td>
-    <a href="index.php?uc=consulterMedicament&action=precedent&cpt=<?php echo $k-1 ?>"><input type="button" value="Précedent"></a>
-     <a href="index.php?uc=consulterMedicament&action=suivant&cpt=<?php echo $k+1 ?>"><input type="button" value="Suivant"/></a>
+    <a href="index.php?uc=consulterMedicament&action=precedent&cpt=<?php //echo $k-1 ?>"><input type="button" value="Précedent"></a>
+   </td>
+   <td>
+     <a href="index.php?uc=consulterMedicament&action=suivant&cpt=<?php // echo $k+1 ?>"><input type="button" value="Suivant"/></a>
 </td>
-</tr>
+</tr>-->
     
 </table>  
+
+<a href="index.php?uc=consulterMedicament&action=precedent&cpt=<?php if($k<=1){echo $k=count($lesMedicaments);}else{ echo $k-1;} ?>"> <input type="button" value="Précedent"></a>
+
+<a href="index.php?uc=consulterMedicament&action=suivant&cpt=<?php if($k>=count($lesMedicaments)){echo $k=1;} else { echo $k+1;} ?>"><input type="button" value="Suivant"/></a>
+
+
 
 </div>
  

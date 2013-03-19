@@ -46,7 +46,7 @@ body{
 	padding: 1.3em;
 	background-color: white;
 	border-left :  groove 0.8em #980101;
-  margin-top : 1.2em;
+        margin-top : 1.2em;
 	margin-left: 18%;
 /* permet de fixer une hauteur mini sur les navigateurs modernes */
   min-height:27em;
@@ -55,7 +55,10 @@ body{
 */
   height:27em;
 }
-
+#lesPraticiens th{
+    background-color: deepskyblue;
+   position: absolute;
+}
 /* pour r�tablir le mauvais effet sur les nav. modernes */
 html>body #contenu{
   height:auto;
@@ -237,7 +240,8 @@ taille de caract�res l�g�rement sup�rieure � la normale */
 } 
 
 #contenu td {
-   /*border :1px solid #777777;*/
+   border :1px solid #77AADD;
+   padding:5px;
 }
 
 #contenu h3 {
@@ -286,7 +290,7 @@ table.listeLegere th.libelle{
 	border : 1px solid #6988BE;
 	padding-left: 25px;
 	background-color: #E9F1FE;
-  height : 28px;
+        height : 28px;
 }
 
 #contenu img {

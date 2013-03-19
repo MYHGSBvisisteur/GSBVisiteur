@@ -1,22 +1,35 @@
-﻿<?php
-if(!isset($_REQUEST['action'])){
+<?php
+
+
+if(!isset($_REQUEST['action']) || $_REQUEST['action']!='suivant' || $_REQUEST['action']!='precedent')
+    {
 	$_REQUEST['action'] = 'debut';
-}
+    }
+    
 $lesMedicaments=$pdo->getLesMedicaments();
 $action = $_REQUEST['action'];
-switch($action){
-	case 'debut':{
-            $k=0;
-		include("vues/v_lesMedicaments.php");
-		break;
+
+
+switch($action)
+{
+	case 'debut':
+        {
+           
+          
+            include("vues/v_lesMedicaments.php");
+            break;
 	}
-	case 'suivant':{
-            $k+=1;
+	case 'suivant':
+        {
+           
             include("vues/v_lesMedicaments.php");
-            break;}
-        case 'precedent':{
-            $k-=1;
+            break;
+        }
+            case 'precedent':
+        {
+            
             include("vues/v_lesMedicaments.php");
-            break;}
+            break;
+        }
 }
 ?>

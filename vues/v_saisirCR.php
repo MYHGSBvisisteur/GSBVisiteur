@@ -19,12 +19,11 @@
              <tr>
                 <td>Praticien : </td>  
                 <td><SELECT name="praticien" size="1">
-                    <OPTION>lundi
-                    <OPTION>mardi
-                    <OPTION selected>mercredi
-                    <OPTION>jeudi
-                    <OPTION>vendredi
-                    </SELECT></td>           
+                    <?PHP foreach ($lesPraticiens as $ligne){
+                            echo "<OPTION VALUE='" .$ligne['PRA_NUM']. "'>" .$ligne['PRA_NOM']. "</OPTION>";
+                        }
+                    ?>
+                    </SELECT></td>          
              </tr>
              <tr>
                 <td>Coefficient : </td>  
@@ -35,12 +34,12 @@
                 <td><input type="checkbox" name="remplacant" value="yes"></td>           
              </tr>
              <tr>
-                <td>Date : </td>  
+                <td>Date du rapport: </td>  
                 <td><input type="text" name="date"></td>           
              </tr>
              <tr>
                 <td>Motif : </td>  
-                <td><SELECT name="praticien" size="1">
+                <td><SELECT name="motif" size="1">
                     <OPTION selected>Périodicité
                     <OPTION>
                     <OPTION>
@@ -59,11 +58,17 @@
           <table border="0">
              <tr>
                 <td>Produit 1 : </td>  
-                <td><input type="text" name="prod1"></td>           
-             </tr>
-             <tr>
-                <td>Produit 2 : </td>  
-                <td><input type="text" name="prod2"></td>           
+                <td><SELECT name="produit" size="1">
+                    <?PHP foreach ($lesMedicaments as $ligne){
+                            echo "<OPTION VALUE='" .$ligne['MED_DEPOTLEGAL']. "'>" .$ligne['MED_NOMCOMMERCIAL']. "</OPTION>";
+                        }
+                        /*if (isset ($ligne) ){
+                            foreach ($lesMedicaments as $ligne){
+                            echo "<OPTION VALUE='" .$ligne['MED_DEPOTLEGAL']. "'>" .$ligne['MED_NOMCOMMERCIAL']. "</OPTION>";
+                            }
+                        }*/
+?>
+                    </SELECT></td>
              </tr>
              <tr>
                 <td>Documentation offerte: </td>  
