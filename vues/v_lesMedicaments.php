@@ -65,7 +65,7 @@ $k=$_REQUEST['cpt'];
 
 
 <tr>
-<th>Prix échantillon:</th><td><?php echo $prix[$k]; ?></td>
+<th>Prix échantillon:</th><td><?php echo $prix[$k].'€'; ?></td>
 </tr>
 
 <!--<tr>
