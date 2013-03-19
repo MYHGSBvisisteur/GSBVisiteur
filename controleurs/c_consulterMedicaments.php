@@ -15,19 +15,19 @@ switch($action)
 	case 'debut':
         {
            
-          
+            include("vues/v_sommaire.php");
             include("vues/v_lesMedicaments.php");
             break;
 	}
 	case 'suivant':
         {
-           
+            include("vues/v_sommaire.php");
             include("vues/v_lesMedicaments.php");
             break;
         }
             case 'precedent':
         {
-            
+            include("vues/v_sommaire.php");
             include("vues/v_lesMedicaments.php");
             break;
         }
