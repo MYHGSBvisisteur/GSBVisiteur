@@ -25,7 +25,7 @@
               
            <ul>
               <li class="smenu">
-                  <a href="index.php?uc=consulterMedicaments" title="Consulter les médicaments">Médicaments</a>
+                  <a href="index.php?uc=consulterMedicament" title="Consulter les médicaments">Médicaments</a>
               </li>
               <li class="smenu">
                   <a href="index.php?uc=consulterPraticien" title="Consulter les praticiens">Praticiens</a>

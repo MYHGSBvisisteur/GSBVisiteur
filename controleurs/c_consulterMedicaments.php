@@ -14,21 +14,20 @@ switch($action)
 {
 	case 'debut':
         {
-           // $k=1;
+           
+            include("vues/v_sommaire.php");
             include("vues/v_lesMedicaments.php");
             break;
 	}
 	case 'suivant':
         {
-          
-           //$k+=1;
+            include("vues/v_sommaire.php");
             include("vues/v_lesMedicaments.php");
             break;
         }
             case 'precedent':
         {
-            
-            //$k-=1;
+            include("vues/v_sommaire.php");
             include("vues/v_lesMedicaments.php");
             break;
         }
