@@ -117,10 +117,12 @@ class PdoGsb{
             return $ligne;
         }
         public function getInfosPraticien($idPraticien){
-            $req ="select PRA_NOM,PRA_PRENOM,PRA_ADRESSE,PRA_VILLE,PRA_COEFNOTORIETE,TYP_LIBELLE,TYP_LIEU
-                   from praticien p, type_praticien t
-                   where PRA_NUM = $idPraticien
-                   and p.TYP_CODE = t.TYP_CODE";
+              $req ="select PRA_NOM,PRA_PRENOM,PRA_ADRESSE,PRA_VILLE,PRA_COEFNOTORIETE,TYP_LIBELLE,TYP_LIEU,SPE_LIBELLE, POS_DIPLOME
+                   from praticien p, type_praticien t,specialite s,posseder pos
+                   where p.PRA_NUM = $idPraticien
+                   and p.TYP_CODE = t.TYP_CODE
+                   and p.PRA_NUM = pos.PRA_NUM
+                   and s.SPE_CODE = pos.SPE_CODE";
             
             $rs = PdoGsb::$monPdo->query($req);
 	    $ligne = $rs->fetch();
