@@ -14,7 +14,7 @@ switch($action){
             $k+=1;
             include("vues/v_lesMedicaments.php");
             break;}
-            case 'suivant':{
+        case 'precedent':{
             $k-=1;
             include("vues/v_lesMedicaments.php");
             break;}
