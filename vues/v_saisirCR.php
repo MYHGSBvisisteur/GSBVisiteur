@@ -1,8 +1,3 @@
-<?php
-//include("vues/v_sommaire.php"); Pas besoin car déjà dans le controleur
-
-?>
-
 <div id="contenu">
     
       <h2>Rapport de visite </h2>
@@ -10,7 +5,7 @@
         <table border="0">
              <tr>
                 <td>Numero : </td>  
-                <td><input type="text" name="num" spaceholder="Votre numéro"></td>           
+                <td><input type="text" name="num" value="<?PHP echo $mat['MaxNumRapport'] ?>"></td>           
              </tr>
              <tr>
                 <td>Date visite : </td>  
@@ -31,8 +26,15 @@
              </tr>
              <tr>
                 <td>Remplacant : </td>  
-                <td><input type="checkbox" name="remplacant" value="yes">
-                <SELECT name="praticien2" size="1">
+                <td><!--<input type="checkbox" id="remplacant" onClick="liste()">-->
+                    <input type="checkbox" id="remplacant" onClick="getElementById('praticien2').disabled;
+                                                                if ($(this).checked) {
+                                                                    alert('yes chack');
+                                                                }else{
+                                                                    alert('non check');
+                                                                    document.getElementById('praticien2').disabled;
+                                                                }">
+                <SELECT id="praticien2" size="1">
                     <?PHP foreach ($lesPraticiens as $ligne){
                             echo "<OPTION VALUE='" .$ligne['PRA_NUM']. "'>" .$ligne['PRA_NOM']. "</OPTION>";
                         }

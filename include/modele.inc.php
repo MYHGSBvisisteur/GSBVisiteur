@@ -70,8 +70,8 @@ class PdoGsb{
         // ou return $this->_pdo->query($query)->fetchAll(PDO::FETCH_ASSOC);
     }
     
-    public function getLesCR() {//Slect que les données dont on a besoin pour consulter un CR. Pra_Num présent dans pra et rapportV donc alias
-     // retourne un tableau associatif contenant tous les comptes rendus
+    public function getLesCR() {//Slect que les données dont on a besoin pour consulter un CR. Pra_Num présent dans praticien et rapportVsite donc alias
+     // retourne un tableau associatif contenant toutes les données des comptes rendus rassemblé par num de rapport
          $req="SELECT R.RAP_NUM, RAP_DATE, RAP_BILAN, RAP_MOTIF, P.PRA_NUM, PRA_NOM, PRA_COEFNOTORIETE, MED_NOMCOMMERCIAL
                FROM rapport_visite R, praticien P, medicament M, offrir O
                WHERE P.PRA_NUM = R.PRA_NUM 
@@ -83,10 +83,20 @@ class PdoGsb{
         // ou return $this->_pdo->query($query)->fetchAll(PDO::FETCH_ASSOC);
     }
     
-    public function insererLesCR($num, $date, $bilan, $motif) {
+    public function getLesNumCR($idVisiteur) {
+        // retourne un tableau associatif contenant tous les comptes rendus
+         $req="SELECT Max(RAP_NUM) as 'MaxNumRapport'
+               FROM rapport_visite
+               WHERE VIS_MATRICULE = '$idVisiteur'";
+         $rs = PdoGsb::$monPdo->query($req);
+		$ligne = $rs->fetchAll(PDO::FETCH_ASSOC);
+		return $ligne;
+                // ou return $this->_pdo->query($query)->fetchAll(PDO::FETCH_ASSOC);
+     }
+    public function insererLesCR($date, $bilan, $motif) {
      // insère le compte rendu saisi dans la bd
          $req="INSERT INTO rapport_visite(RAP_NUM, RAP_DATE, RAP_BILAN, RAP_MOTIF)
-             VALUES ('$num', '$date', '$bilan', '$motif')";
+             VALUES ('$date', '$bilan', '$motif')";
          $rs = PdoGsb::$monPdo->query($req);
 		$ligne = $rs->fetch();
     }
