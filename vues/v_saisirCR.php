@@ -26,34 +26,27 @@
              </tr>
              <tr>
                 <td>Remplacant : </td>  
-                <td><!--<input type="checkbox" id="remplacant" onClick="liste()">-->
-                    <input type="checkbox" id="remplacant" onClick="getElementById('praticien2').disabled;
-                                                                if ($(this).checked) {
-                                                                    alert('yes chack');
-                                                                }else{
-                                                                    alert('non check');
-                                                                    document.getElementById('praticien2').disabled;
-                                                                }">
+                <td><input type="checkbox" checked id="remplacant" onClick="liste()">
                 <SELECT id="praticien2" size="1">
                     <?PHP foreach ($lesPraticiens as $ligne){
                             echo "<OPTION VALUE='" .$ligne['PRA_NUM']. "'>" .$ligne['PRA_NOM']. "</OPTION>";
                         }
                     ?>
                     </SELECT>
-                </td>           
+                </td>
              </tr>
              <tr>
                 <td>Date du rapport: </td>  
-                <td><input type="text" name="date"></td>           
+                <td><input type="text" name="dateRapport" value='<?PHP echo date("d/m/Y")?>'></td>           
              </tr>
              <tr>
                 <td>Motif : </td>  
-                <td><SELECT name="motif" size="1">
+                <td><SELECT id="motif1" size="1" onClick="motif()">
                     <OPTION>Périodicité
                     <OPTION>Actualisation annuelle
                     <OPTION>Rapport Annuel
                     <OPTION>Baisse activité
-                    </SELECT><input type="text" name="motif"></td>
+                    </SELECT><input type="text" id="motif2"></td>
              </tr>
              <tr>
                 <td>Bilan : </td>  
@@ -84,7 +77,7 @@
              </tr>
              <tr>
                 <td>Documentation offerte: </td>  
-                <td><input type="checkbox" name="doc" value="yes"></td>           
+                <td><input type="checkbox" name="doc"></td>           
              </tr>
           </table>
           

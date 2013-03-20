@@ -17,9 +17,11 @@ switch($action){
                 
                 if(empty($_REQUEST['i'])){
                     $i = 0;
-                }//elseif($_REQUEST['i']==0){
-                    
-                //}
+                }elseif($_REQUEST['i'] >=  count($lesCR)){
+                    $i=0;
+                }elseif($_REQUEST['i'] <=  0){
+                    $i=count($lesCR);
+                }
                 else{
                     $i=$_REQUEST['i'];
                 }
@@ -29,10 +31,8 @@ switch($action){
 		break;
 	}
         case 'saisirCR':{
-		$lesCR=$pdo-> insererLesCR();
+		//$lesCR=$pdo-> insererLesCR();
                 $mat = $pdo-> getLesNumCR($idVisiteur);
-                echo $mat;
-                var_dump($mat);
                 include("vues/v_saisirCR.php");
 		break;
 	}

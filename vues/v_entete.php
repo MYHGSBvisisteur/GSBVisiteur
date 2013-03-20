@@ -4,28 +4,19 @@
   <head>
     <title>Application Laboratoire Galaxy-Swiss Bourdin</title>
     <SCRIPT LANGUAGE="JavaScript" type="text/javascript">
-	/*function cpt(){
-            var emplacement = document.form1.txtMail.value;
-
-            if (mailOk.test(emplacement)){
-                    alert("mail ok");
-                    lesSports = getElementsByName("sport");
-                            for (i=0; i<lesSports.length; i++){
-                                    lesSports[i].checked = true;
-                                    document.form1.value = "Tout décocher";
-                            }
-            else
-                    alert("Vous devez saisir un mail valide");
+	function liste(){
+            var checkbox = document.getElementById("remplacant");
+            var liste = document.getElementById("praticien2");
+            if (checkbox.checked==false){
+                liste.disabled=true;
+            }else{
+                liste.disabled=false;
             }
-        }*/
-        function liste(){
-            var checkbox = document.document.getElementById("remplacant");
-            var liste = document.document.getElementById("praticien2");
-            alert("Vous devez saisir un mail valide");
-            if (checkbox.checked){
-                alert("checker");
-                liste.disabled;
-            }
+        }
+        
+        function motif(){
+            var text = document.getElementById("motif2");
+                text.disabled=true;
         }
     </SCRIPT>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />

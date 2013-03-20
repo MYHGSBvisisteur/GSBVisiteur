@@ -89,14 +89,14 @@ class PdoGsb{
                FROM rapport_visite
                WHERE VIS_MATRICULE = '$idVisiteur'";
          $rs = PdoGsb::$monPdo->query($req);
-		$ligne = $rs->fetchAll(PDO::FETCH_ASSOC);
+		$ligne = $rs->fetch();
 		return $ligne;
                 // ou return $this->_pdo->query($query)->fetchAll(PDO::FETCH_ASSOC);
      }
-    public function insererLesCR($date, $bilan, $motif) {
+    public function insererLesCR($idVisiteur, $num, $date, $bilan, $motif, $remplacant, $doc) {
      // insère le compte rendu saisi dans la bd
-         $req="INSERT INTO rapport_visite(RAP_NUM, RAP_DATE, RAP_BILAN, RAP_MOTIF)
-             VALUES ('$date', '$bilan', '$motif')";
+         $req="INSERT INTO rapport_visite(VIS_MATRICULE, RAP_NUM, RAP_DATE, RAP_BILAN, RAP_MOTIF, RAP_REMPLACANT, RAP_DOC)
+             VALUES ('$idVisiteur', '$num', '$date', '$bilan', '$motif', '$remplacant', '$doc')";
          $rs = PdoGsb::$monPdo->query($req);
 		$ligne = $rs->fetch();
     }
