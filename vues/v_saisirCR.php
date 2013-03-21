@@ -5,7 +5,7 @@
         <table border="0">
              <tr>
                 <td>Numero : </td>  
-                <td><input type="text" name="num" value="<?PHP echo $mat['MaxNumRapport'] ?>"></td>           
+                <td><?PHP echo $mat['MaxNumRapport']+1; //Affiche le résultat de la fonction getLesNumCR ?></td>           
              </tr>
              <tr>
                 <td>Date visite : </td>  
@@ -22,14 +22,14 @@
              </tr>
              <tr>
                 <td>Coefficient : </td>  
-                <td><input type="text" name="coeff" value="<?PHP echo $ligne['PRA_COEFNOTORIETE'] ?>"></td>           
+                <td><?PHP echo $ligne['PRA_COEFNOTORIETE']//Affiche le coeff du praticien saisi dans la liste déroulante ?></td>           
              </tr>
              <tr>
                 <td>Remplacant : </td>  
                 <td><input type="checkbox" checked id="remplacant" onClick="liste()">
-                <SELECT id="praticien2" size="1">
+                <SELECT id="praticien2" size="1" >
                     <?PHP foreach ($lesPraticiens as $ligne){
-                            echo "<OPTION VALUE='" .$ligne['PRA_NUM']. "'>" .$ligne['PRA_NOM']. "</OPTION>";
+                            echo "<OPTION NAME ='remplacant' VALUE='" .$ligne['PRA_NUM']. "'>" .$ligne['PRA_NOM']. "</OPTION>";
                         }
                     ?>
                     </SELECT>
@@ -37,11 +37,11 @@
              </tr>
              <tr>
                 <td>Date du rapport: </td>  
-                <td><input type="text" name="dateRapport" value='<?PHP echo date("d/m/Y")?>'></td>           
+                <td><?PHP echo date("d/m/Y")?></td>           
              </tr>
              <tr>
                 <td>Motif : </td>  
-                <td><SELECT id="motif1" size="1" onClick="motif()">
+                <td><SELECT id="motif1" size="1" name="motif" onClick="motif()">
                     <OPTION>Périodicité
                     <OPTION>Actualisation annuelle
                     <OPTION>Rapport Annuel
@@ -50,7 +50,7 @@
              </tr>
              <tr>
                 <td>Bilan : </td>  
-                <td><textarea rows="5" cols="50"></textarea></td>           
+                <td><textarea rows="5" name="bilan" cols="50"></textarea></td>           
              </tr>
         </table>
       
@@ -77,7 +77,7 @@
              </tr>
              <tr>
                 <td>Documentation offerte: </td>  
-                <td><input type="checkbox" name="doc"></td>           
+                <td><input type="checkbox" name="doc" value="1"></td>           
              </tr>
           </table>
           
@@ -93,6 +93,24 @@
           </table>
           
           <br><br>
+          <form action="" method="POST">
+              
+              <input type="reset" value="Annuler"><input type="submit" name="Valid" value="Valider">
+              
+              <?PHP 
+              
+              if (isset ($_POST['Valid'])){
+                    $num=$mat['MaxNumRapport']+1;
+                    $date=date("d/m/Y");
+                    $bilan=$_POST['bilan'];
+                    $motif=$_POST['motif'];
+                    $remplacant=$_POST['remplacant'];
+                    $doc=$_POST['doc'];
+                    
+                    var_dump($num);
+                    $lesCR=$pdo-> insererLesCR($idVisiteur, $num, $date, $bilan, $motif, $remplacant, $doc); 
+              }
+              ?>
           
-          <input type="reset" value="Annuler"><input type="submit" value="Valider">
+          </form>
 </div>

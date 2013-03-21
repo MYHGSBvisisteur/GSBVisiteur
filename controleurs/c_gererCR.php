@@ -31,7 +31,7 @@ switch($action){
 		break;
 	}
         case 'saisirCR':{
-		//$lesCR=$pdo-> insererLesCR();
+		//$lesCR=$pdo-> insererLesCR($idVisiteur, $num, $date, $bilan, $motif, $remplacant, $doc);
                 $mat = $pdo-> getLesNumCR($idVisiteur);
                 include("vues/v_saisirCR.php");
 		break;
