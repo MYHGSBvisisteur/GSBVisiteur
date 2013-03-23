@@ -70,15 +70,16 @@ class PdoGsb{
         // ou return $this->_pdo->query($query)->fetchAll(PDO::FETCH_ASSOC);
     }
     
-    public function getLesCR() {//Slect que les données dont on a besoin pour consulter un CR. Pra_Num présent dans praticien et rapportVsite donc alias
+    public function getLesCR($idVisiteur) {//Slect que les données dont on a besoin pour consulter un CR. Pra_Num présent dans praticien et rapportVsite donc alias
      // retourne un tableau associatif contenant toutes les données des comptes rendus rassemblé par num de rapport
          $req="SELECT R.RAP_NUM, RAP_DATE, RAP_BILAN, RAP_MOTIF, P.PRA_NUM, PRA_NOM, PRA_COEFNOTORIETE, MED_NOMCOMMERCIAL
                FROM rapport_visite R, praticien P, medicament M, offrir O
                WHERE P.PRA_NUM = R.PRA_NUM 
                AND  O.MED_DEPOTLEGAL = M.MED_DEPOTLEGAL
+               AND VIS_MATRICULE = '$idVisiteur'
                GROUP BY R.RAP_NUM";
          $rs = PdoGsb::$monPdo->query($req);
-		$ligne = $rs->fetchAll(PDO::FETCH_ASSOC);
+		$ligne = $rs->fetch();
 		return $ligne;
         // ou return $this->_pdo->query($query)->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -93,12 +94,15 @@ class PdoGsb{
 		return $ligne;
                 // ou return $this->_pdo->query($query)->fetchAll(PDO::FETCH_ASSOC);
      }
-    public function insererLesCR($idVisiteur, $num, $date, $bilan, $motif, $remplacant, $doc) {
+    public function insererLesCR($idVisiteur, $num, $numPra, $date, $bilan, $motif, $remplacant, $doc) {
      // insère le compte rendu saisi dans la bd
-         $req="INSERT INTO rapport_visite(VIS_MATRICULE, RAP_NUM, RAP_DATE, RAP_BILAN, RAP_MOTIF, RAP_REMPLACANT, RAP_DOC)
-             VALUES ('$idVisiteur', '$num', '$date', '$bilan', '$motif', '$remplacant', '$doc')";
+         $req="INSERT INTO rapport_visite(VIS_MATRICULE, RAP_NUM, PRA_NUM, RAP_DATE, RAP_BILAN, RAP_MOTIF, RAP_REMPLACANT, RAP_DOC)
+             VALUES ('$idVisiteur', '$num', '$numPra', '$date', '$bilan', '$motif', '$remplacant', '$doc')";
          $rs = PdoGsb::$monPdo->query($req);
-		$ligne = $rs->fetch();
+    }
+    
+    function testDate($value){
+		return preg_match('`^\d{1,2}/\d{1,2}/\d{4}$`', $value);
     }
     
         public function getLesMedicaments() {

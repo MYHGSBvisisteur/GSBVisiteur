@@ -14,9 +14,21 @@
             }
         }
         
-        function motif(){
-            var text = document.getElementById("motif2");
-                text.disabled=true;
+        function motif1(){
+            /*var text = document.getElementById("motif2");
+            var liste = document.getElementById("motif1");
+                if(liste==true){
+                    text.disabled=true;
+                }else{
+                    liste.disabled=true;
+                }*/
+              var liste = document.getElementById("motif2");
+              liste.disabled=true;
+        }
+        
+        function motif2(){
+              var text = document.getElementById("motif1");
+              text.disabled=true;
         }
     </SCRIPT>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
