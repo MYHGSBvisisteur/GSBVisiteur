@@ -13,7 +13,8 @@ $lesPraticiens = $pdo-> getLesInfosPraticiens();
 
 switch($action){
 	case 'consulterCR':{
-		$lesCR = $pdo-> getLesCR($idVisiteur);
+		//$lesCR = $pdo-> getLesCR($idVisiteur);
+                $lesCR = $pdo-> getLesCR();
                 
                 if(empty($_REQUEST['i'])){
                     $i = 0;

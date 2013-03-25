@@ -11,7 +11,7 @@
              </tr>
              <tr>
                 <td>Date visite : </td>  
-                <td><input type="text" name="dateVisite"></td>           
+                <td><input type="text" name="dateVisite"> (JJ/MM/AAAA)</td>           
              </tr>
              <tr>
                 <td>Praticien : </td>  
@@ -43,12 +43,12 @@
              </tr>
              <tr>
                 <td>Motif : </td>  
-                <td><SELECT id="motif1" size="1" name="motif" onClick="motif1()">
+                <td><SELECT id="motif1" size="1" name="lstMotif" onClick="griserText()"><!--Nom différent entre id et onClick sinon ne marche pas-->
                     <OPTION>Périodicité</OPTION>
                     <OPTION>Actualisation annuelle</OPTION>
                     <OPTION>Rapport Annuel</OPTION>
                     <OPTION>Baisse activité</OPTION>
-                    </SELECT><input type="text" id="motif2" onClick="motif2()"></td>
+                    </SELECT><input type="text" name ="txtMotif"id="motif2" onClick="griserListe()"></td>
              </tr>
              <tr>
                 <td>Bilan : </td>  
@@ -63,7 +63,7 @@
           <table border="0">
              <tr>
                 <td>Produit 1 : </td>  
-                <td><SELECT name="produit" size="1">
+                <td><SELECT name="produit1" size="1">
                         <option></option>
                     <?PHP foreach ($lesMedicaments as $ligne){
                             echo "<OPTION VALUE='" .$ligne['MED_DEPOTLEGAL']. "'>" .$ligne['MED_NOMCOMMERCIAL']. "</OPTION>";
@@ -72,7 +72,7 @@
              </tr>
              <tr>
                 <td>Produit 2 : </td>  
-                <td><SELECT name="produit" size="1">
+                <td><SELECT name="produit2" size="1">
                         <option></option>
                     <?PHP foreach ($lesMedicaments as $ligne){
                             echo "<OPTION VALUE='" .$ligne['MED_DEPOTLEGAL']. "'>" .$ligne['MED_NOMCOMMERCIAL']. "</OPTION>";
@@ -89,45 +89,14 @@
           
           <h2>Echantillons</h2>
           
-          <SELECT name="produit" size="1"><option>Produits</option><option>Produits</option></SELECT>
+          <SELECT name="produit" size="1"><option>Produits 1</option><option>Produits 2</option></SELECT>
           <input type="text" name="texte">
           <input type="submit" name="Ajout" value="+">
           
           <br><br>
           
-              <?PHP 
+              <?PHP include("vues/v_traitementSaisieCR.php"); ?>
               
-              if (isset ($_POST['Valid'])){
-                  
-                    $num=$mat['MaxNumRapport']+1;
-                    $dateVisite=$_POST['dateVisite'];
-                    $dateRapp=date("d/m/Y");
-                    $bilan=$_POST['bilan'];
-                    $motif=$_POST['motif'];
-                    $praticien=$_POST['praticien'];
-                    
-                    if($dateVisite<>testDate($dateVisite)){
-                        return false;
-                    }
-                    if(isset($_POST['remplacant']) == null){
-                         $remplacant2="non";
-                    }else{
-                        $remplacant2=$_POST['remplacant2'];
-                    }
-                    
-                    if(isset($_POST['doc']) == null){//documentation offerte oui si coché non sinon
-                        $doc=FALSE;
-                    }else{
-                        $doc=TRUE;
-                    }
-                    
-                    if (($bilan)=="" || $motif=="" || $dateVisite==""){
-                        echo"Certains paramètres n'ont pas été saisi!";
-                    }else{
-                        $lesCR=$pdo-> insererLesCR($idVisiteur, $num, $praticien, $dateRapp, $bilan, $motif, $remplacant2, $doc);
-                    }
-              }
-              ?>
           <input type="reset" value="Annuler"><input type="submit" name="Valid" value="Valider">
           </form>
 </div>
