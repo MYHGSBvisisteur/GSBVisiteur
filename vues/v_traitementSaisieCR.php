@@ -61,6 +61,10 @@ if (isset ($_POST['Valid'])){
       }
 }
 
+
+// Traitement des échantillons
+
+
 if (isset ($_POST['Ajout'])){
     
     $prod1 = $_POST['prod1'];
