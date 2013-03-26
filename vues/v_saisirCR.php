@@ -89,8 +89,13 @@
           
           <h2>Echantillons</h2>
           
-          <SELECT name="produit" size="1"><option>Produits 1</option><option>Produits 2</option></SELECT>
-          <input type="text" name="texte">
+          <SELECT name="medoc" size="1">
+                        <option></option>
+                    <?PHP foreach ($lesMedicaments as $ligne){
+                            echo "<OPTION VALUE='" .$ligne['MED_DEPOTLEGAL']. "'>" .$ligne['MED_NOMCOMMERCIAL']. "</OPTION>";
+                        }?>
+                    </SELECT>
+          <input type="text" name="qte" placeholder="Quantité">
           <input type="submit" name="Ajout" value="+">
           
           <br><br>

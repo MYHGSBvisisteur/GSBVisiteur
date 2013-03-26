@@ -6,9 +6,13 @@
           $coeff=$lesCR[$i]['PRA_COEFNOTORIETE'];
           $date=$lesCR[$i]['RAP_DATE'];
           $motif=$lesCR[$i]['RAP_MOTIF'];
+          $doc=$lesCR[$i]['RAP_DOC'];
+          $remp=$lesCR[$i]['RAP_REMPLACANT'];
+          $dateVisite=$lesCR[$i]['RAP_DATE_VISITE'];
           $bilan=$lesCR[$i]['RAP_BILAN'];
           $produit1=$lesCR[$i]['MED_NOMCOMMERCIAL'];
           $produit2=$lesCR[$i]['MED_NOMCOMMERCIAL'];
+          
     ?>
     
     <h2>Rapport de visite </h2>
@@ -21,7 +25,7 @@
              </tr>
              <tr>
                 <td>Date visite : </td>  
-                <td></td>
+                <td><?PHP echo $dateVisite ?></td>
              </tr>
              <tr>
                 <td>Praticien : </td>  
@@ -33,7 +37,7 @@
              </tr>
              <tr>
                 <td>Remplacant : </td>  
-                <td><?PHP //echo $lesCR[$i]['RAP_REMPLACANT']; ?></td>           
+                <td><?PHP echo $remp ?></td>           
              </tr>
              <tr>
                 <td>Date : </td>  
@@ -64,7 +68,7 @@
              </tr>
              <tr>
                 <td>Documentation offerte: </td>  
-                <td>Oui ou Non</td>           
+                <td><?PHP echo $doc ?></td>           
              </tr>
           </table>
           
@@ -72,12 +76,13 @@
           
           <h2>Echantillons</h2>
           
-          <table border="0">
-             <tr>
-                <td></td>
-                <td></td>
-             </tr>
-          </table>
+          <SELECT name="medoc" size="1">
+            <option><?PHP ?></option>
+            <option><?PHP ?></option>
+          </SELECT>
+          <input type="text" name="qte" value="<?PHP ?>">
+          
+          <br><br>
           
           <a href='index.php?uc=gererCR&action=consulterCR&i=<?PHP echo $i - 1 ?>'><input type="button" value="precedent"></a>
           <a href='index.php?uc=gererCR&action=consulterCR&i=<?PHP echo $i + 1 ?>'><input type="button" value="suivant"></a>

@@ -85,7 +85,7 @@ class PdoGsb{
     }*/
     public function getLesCR() {//Slect que les données dont on a besoin pour consulter un CR. Pra_Num présent dans praticien et rapportVsite donc alias
      // retourne un tableau associatif contenant toutes les données des comptes rendus rassemblé par num de rapport
-         $req="SELECT R.RAP_NUM, RAP_DATE, RAP_BILAN, RAP_MOTIF, P.PRA_NUM, PRA_NOM, PRA_COEFNOTORIETE, MED_NOMCOMMERCIAL
+         $req="SELECT R.RAP_NUM, RAP_DATE, RAP_BILAN, RAP_MOTIF, RAP_REMPLACANT, RAP_DOC, RAP_DATE_VISITE, P.PRA_NUM, PRA_NOM, PRA_COEFNOTORIETE, MED_NOMCOMMERCIAL
                FROM rapport_visite R, praticien P, medicament M, offrir O
                WHERE P.PRA_NUM = R.PRA_NUM 
                AND  O.MED_DEPOTLEGAL = M.MED_DEPOTLEGAL
@@ -107,10 +107,10 @@ class PdoGsb{
                 // ou return $this->_pdo->query($query)->fetchAll(PDO::FETCH_ASSOC);
      }
      
-    public function insererLesCR($idVisiteur, $num, $numPra, $date, $bilan, $motif, $remplacant, $doc){
+    public function insererLesCR($idVisiteur, $num, $numPra, $date, $bilan, $motif, $remplacant, $doc, $dateVisite){
      // insère le compte rendu saisi dans la bd
-         $req="INSERT INTO rapport_visite(VIS_MATRICULE, RAP_NUM, PRA_NUM, RAP_DATE, RAP_BILAN, RAP_MOTIF, RAP_REMPLACANT, RAP_DOC)
-             VALUES ('$idVisiteur', '$num', '$numPra', '$date', '$bilan', '$motif', '$remplacant', '$doc')";
+         $req="INSERT INTO rapport_visite(VIS_MATRICULE, RAP_NUM, PRA_NUM, RAP_DATE, RAP_BILAN, RAP_MOTIF, RAP_REMPLACANT, RAP_DOC, RAP_DATE_VISITE)
+             VALUES ('$idVisiteur', '$num', '$numPra', '$date', '$bilan', '$motif', '$remplacant', '$doc', '$dateVisite')";
          $rs = PdoGsb::$monPdo->query($req);
     }
     
@@ -122,7 +122,7 @@ class PdoGsb{
     
     public function insererLesEchantillons($idVisiteur, $num, $medoc, $qte){
      // insère le compte rendu saisi dans la bd
-         $req="INSERT INTO rapport_visite(VIS_MATRICULE, RAP_NUM, MED_DEPOTLEGAL, OFF_QTE)
+         $req="INSERT INTO offrir(VIS_MATRICULE, RAP_NUM, MED_DEPOTLEGAL, OFF_QTE)
              VALUES ('$idVisiteur', '$num', '$medoc', '$qte')";
          $rs = PdoGsb::$monPdo->query($req);
     }

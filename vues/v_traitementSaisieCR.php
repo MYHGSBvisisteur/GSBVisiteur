@@ -57,7 +57,7 @@ if (isset ($_POST['Valid'])){
       if ($bilan=="" || $motif=="" || $laDate==FALSE || $produit1==FALSE || $produit2==FALSE){
           echo"Certains paramètres n'ont pas été saisi!";
       }else{
-          $lesCR=$pdo-> insererLesCR($idVisiteur, $num, $praticien, $dateRapp, $bilan, $motif, $remplacant2, $doc);
+          $lesCR=$pdo-> insererLesCR($idVisiteur, $num, $praticien, $dateRapp, $bilan, $motif, $remplacant2, $doc, $laDate);
       }
 }
 
@@ -67,11 +67,16 @@ if (isset ($_POST['Valid'])){
 
 if (isset ($_POST['Ajout'])){
     
-    $prod1 = $_POST['prod1'];
-    $prod2 = $_POST['prod2'];
     $qte = $_POST['qte'];
+    $num=$mat['MaxNumRapport']+1;//Récupère le bon num de rapport
     
-    if ($qte==""){
+    if(isset($_POST['medoc']) == NULL){
+          $medoc = FALSE;
+      }else{
+          $medoc = $_POST['medoc'];
+      }
+      
+    if ($qte=="" || $medoc==FALSE){
         echo"Certains paramètres n'ont pas été saisi!";
     }else{
         $lesEchantillons = $pdo -> insererLesEchantillons($idVisiteur, $num, $medoc, $qte);
