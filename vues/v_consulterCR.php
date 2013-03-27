@@ -12,7 +12,7 @@
           $bilan=$lesCR[$i]['RAP_BILAN'];
           $produit1=$lesCR[$i]['MED_NOMCOMMERCIAL'];
           $produit2=$lesCR[$i]['MED_NOMCOMMERCIAL'];
-          
+          $qte=$lesCR[$i]['OFF_QTE'];
     ?>
     
     <h2>Rapport de visite </h2>
@@ -77,10 +77,10 @@
           <h2>Echantillons</h2>
           
           <SELECT name="medoc" size="1">
-            <option><?PHP ?></option>
-            <option><?PHP ?></option>
+            <option><?PHP $produit1 ?></option>
+            <option><?PHP $produit2 ?></option>
           </SELECT>
-          <input type="text" name="qte" value="<?PHP ?>">
+          <input type="text" name="qte" value="<?PHP $qte ?>">
           
           <br><br>
           

@@ -16,6 +16,10 @@ switch($action){
 		//$lesCR = $pdo-> getLesCR($idVisiteur);
                 $lesCR = $pdo-> getLesCR();
                 
+               // $numCR=$lesCR[$i]['RAP_NUM'];
+                
+                //$lesEchant = $pdo -> getLesEchantillons($numCR);
+                
                 if(empty($_REQUEST['i'])){
                     $i = 0;
                 }elseif($_REQUEST['i'] >=  count($lesCR)){

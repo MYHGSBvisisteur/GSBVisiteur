@@ -85,7 +85,7 @@ class PdoGsb{
     }*/
     public function getLesCR() {//Slect que les données dont on a besoin pour consulter un CR. Pra_Num présent dans praticien et rapportVsite donc alias
      // retourne un tableau associatif contenant toutes les données des comptes rendus rassemblé par num de rapport
-         $req="SELECT R.RAP_NUM, RAP_DATE, RAP_BILAN, RAP_MOTIF, RAP_REMPLACANT, RAP_DOC, RAP_DATE_VISITE, P.PRA_NUM, PRA_NOM, PRA_COEFNOTORIETE, MED_NOMCOMMERCIAL
+         $req="SELECT R.RAP_NUM, RAP_DATE, RAP_BILAN, RAP_MOTIF, RAP_REMPLACANT, RAP_DOC, RAP_DATE_VISITE, P.PRA_NUM, PRA_NOM, PRA_COEFNOTORIETE, MED_NOMCOMMERCIAL, O.MED_DEPOTLEGAL, OFF_QTE
                FROM rapport_visite R, praticien P, medicament M, offrir O
                WHERE P.PRA_NUM = R.PRA_NUM 
                AND  O.MED_DEPOTLEGAL = M.MED_DEPOTLEGAL
@@ -127,6 +127,17 @@ class PdoGsb{
          $rs = PdoGsb::$monPdo->query($req);
     }
     
+    public function getLesEchantillons($numCR) {
+        //Retourne le nom et la quantité des médicaments contenu dans le contrat(partie échantillons)
+         $req="SELECT MED_DEPOTLEGAL, OFF_QTE
+               FROM offrir
+               WHERE RAP_NUM = '$numCR'";
+         $rs = PdoGsb::$monPdo->query($numCR);
+		$ligne = $rs->fetch();
+		return $ligne;
+                // ou return $this->_pdo->query($query)->fetchAll(PDO::FETCH_ASSOC);
+     }
+     
      public function getLesMedicaments() {
      // retourne un tableau associatif contenant tous les informations sur tous les médicaments
          $req="select * from medicament ";
