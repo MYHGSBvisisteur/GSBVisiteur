@@ -30,7 +30,7 @@
                 }
 
                 // Ici on va voir comment faire du post
-                xhr.open("POST","getLeCoeffPra.php",true);
+                xhr.open("POST","/include/coeffAjax.php",true);
                 // ne pas oublier ça pour le post
                 xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
                 // ne pas oublier de poster les arguments
