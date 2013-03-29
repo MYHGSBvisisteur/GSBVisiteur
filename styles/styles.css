@@ -203,7 +203,7 @@ taille de caract�res l�g�rement sup�rieure � la normale */
 
 /* Style pour les liens de la page principale */
 #contenu a {
-   font-size : 1.1em;
+   font-size : 1em;
    color:gray;
    text-decoration:none;
 }

@@ -6,7 +6,7 @@
 <?php
 foreach($lesInfosPraticiens as $unPraticien){
 ?>
-        <tr><td><?php echo $unPraticien['PRA_VILLE'];?></td><td><?php echo $unPraticien['PRA_NOM'];?></td><td><?php echo $unPraticien['PRA_PRENOM'];?></td><td><?php echo $unPraticien['PRA_ADRESSE'];?></td><td><a href="index.php?uc=consulterPraticien&action=lePraticien&id=<?php echo $unPraticien['PRA_NUM'] ?>">+<a/></td></tr>
+        <tr><td><?php echo $unPraticien['PRA_VILLE'];?></td><td><?php echo $unPraticien['PRA_NOM'];?></td><td><?php echo $unPraticien['PRA_PRENOM'];?></td><td><?php echo $unPraticien['PRA_ADRESSE'];?></td><td><a href="index.php?uc=consulterPraticien&action=lePraticien&id=<?php echo $unPraticien['PRA_NUM'] ?>"><center>+</center><a/></td></tr>
         
 <?php } ?>
     </table>
