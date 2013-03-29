@@ -70,24 +70,75 @@ class PdoGsb{
         // ou return $this->_pdo->query($query)->fetchAll(PDO::FETCH_ASSOC);
     }
     
-    public function getLesCR() {
-     // retourne un tableau associatif contenant tous compte rendu
-         $req="select * from compte_rendu";
+    /*public function getLesCR($idVisiteur) {//Slect que les données dont on a besoin pour consulter un CR. Pra_Num présent dans praticien et rapportVsite donc alias
+     // retourne un tableau associatif contenant toutes les données des comptes rendus rassemblé par num de rapport
+         $req="SELECT R.RAP_NUM, RAP_DATE, RAP_BILAN, RAP_MOTIF, P.PRA_NUM, PRA_NOM, PRA_COEFNOTORIETE, MED_NOMCOMMERCIAL
+               FROM rapport_visite R, praticien P, medicament M, offrir O
+               WHERE P.PRA_NUM = R.PRA_NUM 
+               AND  O.MED_DEPOTLEGAL = M.MED_DEPOTLEGAL
+               AND VIS_MATRICULE = '$idVisiteur'
+               GROUP BY R.RAP_NUM";
+         $rs = PdoGsb::$monPdo->query($req);
+		$ligne = $rs->fetch();
+		return $ligne;
+        // ou return $this->_pdo->query($query)->fetchAll(PDO::FETCH_ASSOC);
+    }*/
+    public function getLesCR() {//Slect que les données dont on a besoin pour consulter un CR. Pra_Num présent dans praticien et rapportVsite donc alias
+     // retourne un tableau associatif contenant toutes les données des comptes rendus rassemblé par num de rapport
+         $req="SELECT R.RAP_NUM, RAP_DATE, RAP_BILAN, RAP_MOTIF, RAP_REMPLACANT, RAP_DOC, RAP_DATE_VISITE, P.PRA_NUM, PRA_NOM, PRA_COEFNOTORIETE, MED_NOMCOMMERCIAL, O.MED_DEPOTLEGAL, OFF_QTE
+               FROM rapport_visite R, praticien P, medicament M, offrir O
+               WHERE P.PRA_NUM = R.PRA_NUM 
+               AND  O.MED_DEPOTLEGAL = M.MED_DEPOTLEGAL
+               GROUP BY R.RAP_NUM";
          $rs = PdoGsb::$monPdo->query($req);
 		$ligne = $rs->fetchAll(PDO::FETCH_ASSOC);
 		return $ligne;
         // ou return $this->_pdo->query($query)->fetchAll(PDO::FETCH_ASSOC);
     }
     
-    public function insererLesCR($num, $test) {
-     // insère le compte rendu saisi dans la bd
-         $req="INSERT INTO client(CR_NUM, CR_TEST)
-             VALUES ('$num', '$test')";
+    public function getLesNumCR($idVisiteur) {
+        // retourne un tableau associatif contenant tous les comptes rendus
+         $req="SELECT Max(RAP_NUM) as 'MaxNumRapport'
+               FROM rapport_visite
+               WHERE VIS_MATRICULE = '$idVisiteur'";
          $rs = PdoGsb::$monPdo->query($req);
 		$ligne = $rs->fetch();
+		return $ligne;
+                // ou return $this->_pdo->query($query)->fetchAll(PDO::FETCH_ASSOC);
+     }
+     
+    public function insererLesCR($idVisiteur, $num, $numPra, $date, $bilan, $motif, $remplacant, $doc, $dateVisite){
+     // insère le compte rendu saisi dans la bd
+         $req="INSERT INTO rapport_visite(VIS_MATRICULE, RAP_NUM, PRA_NUM, RAP_DATE, RAP_BILAN, RAP_MOTIF, RAP_REMPLACANT, RAP_DOC, RAP_DATE_VISITE)
+             VALUES ('$idVisiteur', '$num', '$numPra', '$date', '$bilan', '$motif', '$remplacant', '$doc', '$dateVisite')";
+         $rs = PdoGsb::$monPdo->query($req);
     }
     
-        public function getLesMedicaments() {
+    public function testDate($value){
+		if(preg_match('`^\d{1,2}/\d{1,2}/\d{4}$`', $value)==TRUE){
+                    return true;
+                }
+    }
+    
+    public function insererLesEchantillons($idVisiteur, $num, $medoc, $qte){
+     // insère le compte rendu saisi dans la bd
+         $req="INSERT INTO offrir(VIS_MATRICULE, RAP_NUM, MED_DEPOTLEGAL, OFF_QTE)
+             VALUES ('$idVisiteur', '$num', '$medoc', '$qte')";
+         $rs = PdoGsb::$monPdo->query($req);
+    }
+    
+    public function getLesEchantillons($numCR) {
+        //Retourne le nom et la quantité des médicaments contenu dans le contrat(partie échantillons)
+         $req="SELECT MED_DEPOTLEGAL, OFF_QTE
+               FROM offrir
+               WHERE RAP_NUM = '$numCR'";
+         $rs = PdoGsb::$monPdo->query($numCR);
+		$ligne = $rs->fetch();
+		return $ligne;
+                // ou return $this->_pdo->query($query)->fetchAll(PDO::FETCH_ASSOC);
+     }
+     
+     public function getLesMedicaments() {
      // retourne un tableau associatif contenant tous les informations sur tous les médicaments
          $req="select * from medicament ";
          $rs = PdoGsb::$monPdo->query($req);
@@ -95,8 +146,7 @@ class PdoGsb{
          return $ligne;
     }
 
-
-        public function getLesInfosPraticiens(){
+    public function getLesInfosPraticiens(){
             // retourne les infos d'un praticien défini dans l'énoncé §les praticiens
             $req ="select PRA_NOM,PRA_PRENOM,PRA_ADRESSE,PRA_VILLE,PRA_COEFNOTORIETE,TYP_LIBELLE,TYP_LIEU,PRA_NUM
                    from praticien p, type_praticien t

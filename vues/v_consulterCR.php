@@ -1,50 +1,55 @@
 <div id="contenu">
     
-      <h2>Rapport de visite </h2>
-      
-      <form action="" method="POST">
+      <?PHP 
+          $numCR=$lesCR[$i]['RAP_NUM'];
+          $nomPRA=$lesCR[$i]['PRA_NOM'];
+          $coeff=$lesCR[$i]['PRA_COEFNOTORIETE'];
+          $date=$lesCR[$i]['RAP_DATE'];
+          $motif=$lesCR[$i]['RAP_MOTIF'];
+          $doc=$lesCR[$i]['RAP_DOC'];
+          $remp=$lesCR[$i]['RAP_REMPLACANT'];
+          $dateVisite=$lesCR[$i]['RAP_DATE_VISITE'];
+          $bilan=$lesCR[$i]['RAP_BILAN'];
+          $produit1=$lesCR[$i]['MED_NOMCOMMERCIAL'];
+          $produit2=$lesCR[$i]['MED_NOMCOMMERCIAL'];
+          $qte=$lesCR[$i]['OFF_QTE'];
+    ?>
+    
+    <h2>Rapport de visite </h2>
+    
         <table border="0">
+            
              <tr>
                 <td>Numero : </td>  
-                <td><input type="text" name="num" spaceholder="Votre numéro"></td>           
+                <td><?PHP echo $numCR ?></td>
              </tr>
              <tr>
                 <td>Date visite : </td>  
-                <td><input type="text" name="dateVisite"></td>           
+                <td><?PHP echo $dateVisite ?></td>
              </tr>
              <tr>
                 <td>Praticien : </td>  
-                <td><SELECT name="praticien" size="1">
-                    <OPTION>lundi
-                    <OPTION>mardi
-                    <OPTION selected>mercredi
-                    <OPTION>jeudi
-                    <OPTION>vendredi
-                    </SELECT></td>           
+                <td><?PHP echo $nomPRA ?></td>
              </tr>
              <tr>
                 <td>Coefficient : </td>  
-                <td><input type="text" name="coeff"></td>           
+                <td><?PHP echo $coeff ?></td>
              </tr>
              <tr>
                 <td>Remplacant : </td>  
-                <td><input type="checkbox" name="remplacant" value="yes"></td>           
+                <td><?PHP echo $remp ?></td>           
              </tr>
              <tr>
                 <td>Date : </td>  
-                <td><input type="text" name="date"></td>           
+                <td><?PHP echo $date ?></td>           
              </tr>
              <tr>
                 <td>Motif : </td>  
-                <td><SELECT name="praticien" size="1">
-                    <OPTION selected>Périodicité
-                    <OPTION>
-                    <OPTION>
-                    </SELECT></td>
+                <td><?PHP echo $motif ?></td>
              </tr>
              <tr>
                 <td>Bilan : </td>  
-                <td><textarea rows="5" cols="50"></textarea></td>           
+                <td><?PHP echo $bilan ?></td>           
              </tr>
         </table>
       
@@ -55,15 +60,15 @@
           <table border="0">
              <tr>
                 <td>Produit 1 : </td>  
-                <td><input type="text" name="prod1"></td>           
+                <td><?PHP echo $produit1 ?></td>
              </tr>
              <tr>
                 <td>Produit 2 : </td>  
-                <td><input type="text" name="prod2"></td>           
+                <td><?PHP echo $produit2 ?></td>
              </tr>
              <tr>
                 <td>Documentation offerte: </td>  
-                <td><input type="checkbox" name="doc" value="yes"></td>           
+                <td><?PHP echo $doc ?></td>           
              </tr>
           </table>
           
@@ -71,13 +76,16 @@
           
           <h2>Echantillons</h2>
           
-          <table border="0">
-             <tr>
-                <td></td>  
-                <td></td>           
-             </tr>
-          </table>
+          <SELECT name="medoc" size="1">
+            <option><?PHP $produit1 ?></option>
+            <option><?PHP $produit2 ?></option>
+          </SELECT>
+          <input type="text" name="qte" value="<?PHP $qte ?>">
           
           <br><br>
-      </form>
+          
+          <a href='index.php?uc=gererCR&action=consulterCR&i=<?PHP echo $i - 1 ?>'><input type="button" value="precedent"></a>
+          <a href='index.php?uc=gererCR&action=consulterCR&i=<?PHP echo $i + 1 ?>'><input type="button" value="suivant"></a>
+          
+          <br><br>
 </div>

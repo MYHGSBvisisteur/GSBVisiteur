@@ -27,7 +27,6 @@ if(!isset($_REQUEST['cpt']))
     $k=1;
 
     
-    
 }else{
 $k=$_REQUEST['cpt'];
 }
@@ -68,20 +67,14 @@ $k=$_REQUEST['cpt'];
 <th>Prix échantillon:</th><td><?php echo $prix[$k].'€'; ?></td>
 </tr>
 
-<!--<tr>
-<td>
-    <a href="index.php?uc=consulterMedicament&action=precedent&cpt=<?php //echo $k-1 ?>"><input type="button" value="Précedent"></a>
-   </td>
-   <td>
-     <a href="index.php?uc=consulterMedicament&action=suivant&cpt=<?php // echo $k+1 ?>"><input type="button" value="Suivant"/></a>
-</td>
-</tr>-->
+
     
 </table>  
 
-<a href="index.php?uc=consulterMedicament&action=precedent&cpt=<?php if($k<=1){echo $k=count($lesMedicaments);}else{ echo $k-1;} ?>"> <input type="button" value="Précedent"></a>
+<a href="index.php?uc=consulterMedicament&cpt=<?php if($k<=1){echo $k=count($lesMedicaments);}else{ echo $k-1;} ?>"> <input type="button" value="Précedent"></a>
 
-<a href="index.php?uc=consulterMedicament&action=suivant&cpt=<?php if($k>=count($lesMedicaments)){echo $k=1;} else { echo $k+1;} ?>"><input type="button" value="Suivant"/></a>
+<a href="index.php?uc=consulterMedicament&cpt=<?php if($k>=count($lesMedicaments)){echo $k=2;} else { echo $k+1;} ?>"><input type="button" value="Suivant"/></a>
+
 
 
 
