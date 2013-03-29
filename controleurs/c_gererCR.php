@@ -39,7 +39,10 @@ switch($action){
                 $mat = $pdo-> getLesNumCR($idVisiteur);
                 
                 include("vues/v_saisirCR.php");
-		break;
+                ?>
+                <script>getXhr()
+                go()</script>
+		<?php break;
 	}
 }
 ?>

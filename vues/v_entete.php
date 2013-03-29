@@ -35,9 +35,14 @@
                 xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
                 // ne pas oublier de poster les arguments
                 // ici, l'id du client
-                sel = document.getElementById('cli');
-                idcli = sel.options[sel.selectedIndex].value;
-                xhr.send("idcli="+idcli);
+                $('#selectPraticiens').change(function() {
+                    var numero = $("#selectPraticiens").val();
+                    $.post("ajax/getCoeffPraticien.ajax.php", { numPraticien: numero})
+                    .done(function(data) {
+                            var coefficient = parseFloat(data);
+                            $("#coefficient").val(coefficient);
+                    });
+                });
         }
         
         function liste(){
@@ -65,6 +70,8 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <link href="./styles/styles.css" rel="stylesheet" type="text/css" />
     <link rel="shortcut icon" type="image/x-icon" href="./images/favicon.ico" />
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script><!--Fonctionnement Ajax-->
+    <script src="http://code.jquery.com/jquery-migrate-1.1.1.min.js"></script>
     
   </head>
   <body>

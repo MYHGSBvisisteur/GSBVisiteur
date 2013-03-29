@@ -15,7 +15,7 @@
              </tr>
              <tr>
                 <td>Praticien : </td>  
-                <td><SELECT name="praticien" size="1">
+                <td><SELECT id="selectPraticiens" name="praticien" size="1">
                     <?PHP foreach ($lesPraticiens as $ligne){
                             echo "<OPTION VALUE='" .$ligne['PRA_NUM']. "'>" .$ligne['PRA_NOM']. "</OPTION>";
                         }
@@ -24,7 +24,7 @@
              </tr>
              <tr>
                 <td>Coefficient : </td>  
-                <td><?PHP echo $ligne['PRA_COEFNOTORIETE']//Affiche le coeff du praticien saisi dans la liste déroulante ?></td>           
+                <td>id='coefficient' value=''<?PHP echo ""//Affiche le coeff du praticien saisi dans la liste déroulante ?></td>           
              </tr>
              <tr>
                 <td>Remplacant : </td>  
