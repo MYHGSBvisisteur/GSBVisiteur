@@ -178,5 +178,7 @@ class PdoGsb{
 	    $ligne = $rs->fetch();
             return $ligne;
         }
-}
+}   
+
+
   ?>
