@@ -4,21 +4,21 @@ if (isset ($_POST['Valid'])){
 
       $num=$mat['MaxNumRapport']+1;
       $dateVisite=$_POST['dateVisite'];
-      $dateRapp=date("d/m/Y");
+      $dateRapp=date('d/m/Y');
       $bilan=$_POST['bilan'];
       $praticien=$_POST['praticien'];
 
-      $laDate = $pdo-> testDate($dateVisite);//Appel de la fonction vérifiant si la date a bien été saisi correctement
-
+     /* $laDate = $pdo-> testDate($dateVisite);//Appel de la fonction vérifiant si la date a bien été saisi correctement
+      var_dump($dateVisite);
       try{                   
-        $dataInicial  = new DateTime(trim($laDate));
+        $dataInicial  = new DateTime(trim($dateVisite));
         echo $dataInicial->format('d-m-Y');
       }catch(Exception $e) {
           # do nothing
       }
 
       var_dump($laDate);
-      var_dump($dataInicial);
+      var_dump($dataInicial);*/
 
       if(isset($_POST['lstMotif'])==NULL OR $_POST['lstMotif']==""){
           $lstMotif = FALSE;//evite l'erreur de reconnaissance de variable
@@ -53,11 +53,11 @@ if (isset ($_POST['Valid'])){
       }else{
           $doc=TRUE;
       }
-
-      if ($bilan=="" || $motif=="" || $laDate==FALSE || $produit1==FALSE || $produit2==FALSE){
+      
+      if ($bilan=="" || $motif=="" || $dateVisite==FALSE || $produit1==FALSE || $produit2==FALSE){
           echo"Certains paramètres n'ont pas été saisi!";
       }else{
-          $lesCR=$pdo-> insererLesCR($idVisiteur, $num, $praticien, $dateRapp, $bilan, $motif, $remplacant2, $doc, $laDate);
+          $lesCR=$pdo-> insererLesCR($idVisiteur, $num, $praticien, $dateRapp, $bilan, $motif, $remplacant2, $doc, $dateVisite);
       }
 }
 
@@ -65,7 +65,7 @@ if (isset ($_POST['Valid'])){
 // Traitement des échantillons
 
 
-if (isset ($_POST['Ajout'])){
+if (isset ($_POST['Ajout'])){//>2
     
     $qte = $_POST['qte'];
     $num=$mat['MaxNumRapport']+1;//Récupère le bon num de rapport
