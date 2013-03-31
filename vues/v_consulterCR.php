@@ -45,7 +45,7 @@
                 <td><?PHP echo $remp ?></td>           
              </tr>
              <tr>
-                <th>Date : </th>  
+                <th>Date rapport : </th>  
                 <td><?PHP echo $date ?></td>           
              </tr>
              <tr>
@@ -56,24 +56,28 @@
                 <th>Bilan : </th>  
                 <td><?PHP echo $bilan ?></td>           
              </tr>
+             <tr>
+                <th>Documentation offerte: </th>  
+                <td><?PHP echo $doc ?></td>           
+             </tr>
         </table>
       
           <br/><br/>
           
-          <h2>Eléments présentés</h2>
+          <!--<h2>Eléments présentés</h2>
           
           <table border="0">
              <tr>
                 <th>Produit 1 : </th>  
-                <td><?PHP echo $produit1 ?></td>
+                <td><?PHP //echo $produit1 ?></td>
              </tr>
              <tr>
                 <th>Produit 2 : </th>  
-                <td><?PHP echo $produit2 ?></td>
+                <td><?PHP //echo $produit2 ?></td>
              </tr>
              <tr>
                 <th>Documentation offerte: </th>  
-                <td><?PHP echo $doc ?></td>           
+                <td><?PHP //echo $doc ?></td>           
              </tr>
           </table>
           
@@ -82,12 +86,12 @@
           <h2>Echantillons</h2>
           
           <SELECT name="medoc" size="1">
-            <option><?PHP $produit1 ?></option>
-            <option><?PHP $produit2 ?></option>
+            <option><?PHP //$produit1 ?></option>
+            <option><?PHP //$produit2 ?></option>
           </SELECT>
-          <input type="text" name="qte" value="<?PHP $qte ?>">
+          <input type="text" name="qte" value="<?PHP //$qte ?>">
           
-          <br><br>
+          <br><br>-->
           
           <a href='index.php?uc=gererCR&action=consulterCR&i=<?PHP echo $i - 1 ?>'><input type="button" value="precedent"></a>
           <a href='index.php?uc=gererCR&action=consulterCR&i=<?PHP echo $i + 1 ?>'><input type="button" value="suivant"></a>
