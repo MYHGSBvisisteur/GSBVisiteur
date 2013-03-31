@@ -6,15 +6,15 @@
           
         <table border="0">
              <tr>
-                <td>Numero : </td>  
+                <th>Numero : </th>  
                 <td><?PHP echo $mat['MaxNumRapport']+1; //Affiche le résultat de la fonction getLesNumCR ?></td>           
              </tr>
              <tr>
-                <td>Date visite : </td>  
-                <td><input type="text" name="dateVisite"> (JJ/MM/AAAA)</td>           
+                <th>Date visite : </th>  
+                <td><input type="text" name="dateVisite" placeholder="JJ/MM/AAAA"></td>           
              </tr>
              <tr>
-                <td>Praticien : </td>  
+                <th>Praticien : </th>  
                 <td><SELECT id="selectPraticiens" name="praticien" size="1">
                     <?PHP foreach ($lesPraticiens as $ligne){
                             echo "<OPTION VALUE='" .$ligne['PRA_NUM']. "'>" .$ligne['PRA_NOM']. "</OPTION>";
@@ -23,11 +23,11 @@
                     </SELECT></td>
              </tr>
              <tr>
-                <td>Coefficient : </td>  
-                <td>id='coefficient' value=''<?PHP echo ""//Affiche le coeff du praticien saisi dans la liste déroulante ?></td>           
+                <th>Coefficient : </th>  
+                <td><input type='text' name='coefficient' id='coefficient' value=''/><?PHP //Affiche le coeff du praticien saisi dans la liste déroulante ?></td>           
              </tr>
              <tr>
-                <td>Remplacant : </td>  
+                <th>Remplacant : </th>  
                 <td><input type="checkbox" id="remplacant" name="remplacant" value="1" onClick="liste()">
                 <SELECT id="praticien2" name='remplacant2' size="1" disabled>
                     <?PHP foreach ($lesPraticiens as $ligne){?>
@@ -38,11 +38,11 @@
                 </td>
              </tr>
              <tr>
-                <td>Date du rapport: </td>  
+                <th>Date du rapport: </th>  
                 <td><?PHP echo date("d/m/Y"); ?></td>           
              </tr>
              <tr>
-                <td>Motif : </td>  
+                <th>Motif : </th>  
                 <td><SELECT id="motif1" size="1" name="lstMotif" onClick="griserText()"><!--Nom différent entre id et onClick sinon ne marche pas-->
                     <OPTION>Périodicité</OPTION>
                     <OPTION>Actualisation annuelle</OPTION>
@@ -51,7 +51,7 @@
                     </SELECT><input type="text" name ="txtMotif"id="motif2" onClick="griserListe()"></td>
              </tr>
              <tr>
-                <td>Bilan : </td>  
+                <th>Bilan : </th>  
                 <td><textarea rows="5" name="bilan" cols="50"></textarea></td>           
              </tr>
         </table>
@@ -62,8 +62,8 @@
           
           <table border="0">
              <tr>
-                <td>Produit 1 : </td>  
-                <td><SELECT name="produit1" size="1">
+                <th>Produit 1 : </th>  
+                <td><SELECT name="produit1" id="med1" size="1" onClick="medoc()">
                         <option></option>
                     <?PHP foreach ($lesMedicaments as $ligne){
                             echo "<OPTION VALUE='" .$ligne['MED_DEPOTLEGAL']. "'>" .$ligne['MED_NOMCOMMERCIAL']. "</OPTION>";
@@ -71,8 +71,8 @@
                     </SELECT></td>
              </tr>
              <tr>
-                <td>Produit 2 : </td>  
-                <td><SELECT name="produit2" size="1">
+                <th>Produit 2 : </th>  
+                <td><SELECT name="produit2" id="med2" size="1" onchange="document.getElementsByName('medoc').value=this;">
                         <option></option>
                     <?PHP foreach ($lesMedicaments as $ligne){
                             echo "<OPTION VALUE='" .$ligne['MED_DEPOTLEGAL']. "'>" .$ligne['MED_NOMCOMMERCIAL']. "</OPTION>";
@@ -80,7 +80,7 @@
                     </SELECT></td>
              </tr>
              <tr>
-                <td>Documentation offerte: </td>  
+                <th>Documentation offerte: </th>  
                 <td><input type="checkbox" name="doc" value="oui"></td>           
              </tr>
           </table>
@@ -90,11 +90,8 @@
           <h2>Echantillons</h2>
           
           <SELECT name="medoc" size="1">
-                        <option></option>
-                    <?PHP foreach ($lesMedicaments as $ligne){
-                            echo "<OPTION VALUE='" .$ligne['MED_DEPOTLEGAL']. "'>" .$ligne['MED_NOMCOMMERCIAL']. "</OPTION>";
-                        }?>
-                    </SELECT>
+                        <option onchange="document.getElementById('med1').value;"></option>
+          </SELECT>
           <input type="text" name="qte" placeholder="Quantité">
           <input type="submit" name="Ajout" value="+">
           

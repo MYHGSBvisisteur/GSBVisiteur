@@ -8,17 +8,7 @@ if (isset ($_POST['Valid'])){
       $bilan=$_POST['bilan'];
       $praticien=$_POST['praticien'];
 
-     /* $laDate = $pdo-> testDate($dateVisite);//Appel de la fonction vérifiant si la date a bien été saisi correctement
-      var_dump($dateVisite);
-      try{                   
-        $dataInicial  = new DateTime(trim($dateVisite));
-        echo $dataInicial->format('d-m-Y');
-      }catch(Exception $e) {
-          # do nothing
-      }
-
-      var_dump($laDate);
-      var_dump($dataInicial);*/
+      $dateVisite = $pdo-> testDate($dateVisite);//Appel de la fonction vérifiant si la date a bien été saisi correctement
 
       if(isset($_POST['lstMotif'])==NULL OR $_POST['lstMotif']==""){
           $lstMotif = FALSE;//evite l'erreur de reconnaissance de variable
@@ -64,8 +54,7 @@ if (isset ($_POST['Valid'])){
 
 // Traitement des échantillons
 
-
-if (isset ($_POST['Ajout'])){//>2
+if (isset ($_POST['Ajout'])){
     
     $qte = $_POST['qte'];
     $num=$mat['MaxNumRapport']+1;//Récupère le bon num de rapport

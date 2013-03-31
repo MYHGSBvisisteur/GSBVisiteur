@@ -18,13 +18,13 @@ switch($action){
                 
                // $numCR=$lesCR[$i]['RAP_NUM'];
                 
-                //$lesEchant = $pdo -> getLesEchantillons($numCR);
+               //$lesEchant = $pdo -> getLesEchantillons($_REQUEST['i']);
                 
-                if(empty($_REQUEST['i'])){
+                if(empty($_REQUEST['i'])){//Si i est vide on le met à 0
                     $i = 0;
-                }elseif($_REQUEST['i'] >=  count($lesCR)){
+                }elseif($_REQUEST['i'] >=count($lesCR)){//Si i est sup ou égal au nb max de cr on le remet à 0
                     $i=0;
-                }elseif($_REQUEST['i'] <=  0){
+                }elseif($_REQUEST['i'] <=0){//Si i est inf à 0 on remet le cr max
                     $i=count($lesCR);
                 }
                 else{
@@ -40,8 +40,15 @@ switch($action){
                 
                 include("vues/v_saisirCR.php");
                 ?>
-                <script>getXhr()
-                go()</script>
+                <script>
+                $('#selectPraticiens').change(function() {
+                    var numero = $("#selectPraticiens").val();
+                    $.post("Ajax/coeffAjax.php", { numPraticien: numero})
+                    .done(function(data) {
+                            var coefficient = parseFloat(data);
+                            $("#coefficient").val(coefficient);
+                    });
+                });</script>
 		<?php break;
 	}
 }

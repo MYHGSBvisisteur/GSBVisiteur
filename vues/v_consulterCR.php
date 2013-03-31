@@ -7,6 +7,11 @@
           $date=$lesCR[$i]['RAP_DATE'];
           $motif=$lesCR[$i]['RAP_MOTIF'];
           $doc=$lesCR[$i]['RAP_DOC'];
+          if($doc==1){
+              $doc='oui';
+          }else{
+              $doc='non';
+          }
           $remp=$lesCR[$i]['RAP_REMPLACANT'];
           $dateVisite=$lesCR[$i]['RAP_DATE_VISITE'];
           $bilan=$lesCR[$i]['RAP_BILAN'];
@@ -20,35 +25,35 @@
         <table border="0">
             
              <tr>
-                <td>Numero : </td>  
+                <th>Numero : </th>  
                 <td><?PHP echo $numCR ?></td>
              </tr>
              <tr>
-                <td>Date visite : </td>  
+                <th>Date visite : </th>  
                 <td><?PHP echo $dateVisite ?></td>
              </tr>
              <tr>
-                <td>Praticien : </td>  
+                <th>Praticien : </th>  
                 <td><?PHP echo $nomPRA ?></td>
              </tr>
              <tr>
-                <td>Coefficient : </td>  
+                <th>Coefficient : </th>  
                 <td><?PHP echo $coeff ?></td>
              </tr>
              <tr>
-                <td>Remplacant : </td>  
+                <th>Remplacant : </th>  
                 <td><?PHP echo $remp ?></td>           
              </tr>
              <tr>
-                <td>Date : </td>  
+                <th>Date : </th>  
                 <td><?PHP echo $date ?></td>           
              </tr>
              <tr>
-                <td>Motif : </td>  
+                <th>Motif : </th>  
                 <td><?PHP echo $motif ?></td>
              </tr>
              <tr>
-                <td>Bilan : </td>  
+                <th>Bilan : </th>  
                 <td><?PHP echo $bilan ?></td>           
              </tr>
         </table>
@@ -59,15 +64,15 @@
           
           <table border="0">
              <tr>
-                <td>Produit 1 : </td>  
+                <th>Produit 1 : </th>  
                 <td><?PHP echo $produit1 ?></td>
              </tr>
              <tr>
-                <td>Produit 2 : </td>  
+                <th>Produit 2 : </th>  
                 <td><?PHP echo $produit2 ?></td>
              </tr>
              <tr>
-                <td>Documentation offerte: </td>  
+                <th>Documentation offerte: </th>  
                 <td><?PHP echo $doc ?></td>           
              </tr>
           </table>

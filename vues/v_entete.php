@@ -4,47 +4,6 @@
   <head>
     <title>Application Laboratoire Galaxy-Swiss Bourdin</title>
     <SCRIPT LANGUAGE="JavaScript" type="text/javascript">
-	function getXhr(){
-				if(window.XMLHttpRequest) // Firefox et autres
-				   xhr = new XMLHttpRequest();
-				else if(window.ActiveXObject){ // Internet Explorer 
-				   try {
-			                xhr = new ActiveXObject("Msxml2.XMLHTTP");
-			            } catch (e) {
-			                xhr = new ActiveXObject("Microsoft.XMLHTTP");
-			            }
-				}
-				else { // XMLHttpRequest non supporté par le navigateur 
-				   alert("Votre navigateur ne supporte pas les objets XMLHTTPRequest..."); 
-				   xhr = false; 
-				} 
-			}
-        function go(){
-                getXhr();
-                // On défini ce qu'on va faire quand on aura la réponse
-                xhr.onreadystatechange = function(){
-                        // On ne fait quelque chose que si on a tout reçu et que le serveur est ok
-                        if(xhr.readyState == 4 && xhr.status == 200){
-                                leselect = xhr.responseText;
-                        }
-                }
-
-                // Ici on va voir comment faire du post
-                xhr.open("POST","/include/coeffAjax.php",true);
-                // ne pas oublier ça pour le post
-                xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
-                // ne pas oublier de poster les arguments
-                // ici, l'id du client
-                $('#selectPraticiens').change(function() {
-                    var numero = $("#selectPraticiens").val();
-                    $.post("ajax/getCoeffPraticien.ajax.php", { numPraticien: numero})
-                    .done(function(data) {
-                            var coefficient = parseFloat(data);
-                            $("#coefficient").val(coefficient);
-                    });
-                });
-        }
-        
         function liste(){
             var checkbox = document.getElementById("remplacant");
             var liste = document.getElementById("praticien2");
@@ -65,7 +24,17 @@
               liste.disabled=true;
         }
         
-        
+        function medoc(){
+           /* var prod1 = document.getElementById("med1");
+            var prod2 = document.getElementById("med2");
+            
+            alert("Fonctionne");
+            document.getElementsByName("medoc").value=prod1;
+            document.getElementsByName("medoc").value=prod2;
+*/            
+            var numero = $("#med1").val();
+            document.getElementsByName("medoc").options.value=numero;
+        }
     </SCRIPT>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <link href="./styles/styles.css" rel="stylesheet" type="text/css" />

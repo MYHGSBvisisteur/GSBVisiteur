@@ -115,9 +115,7 @@ class PdoGsb{
     }
     
     public function testDate($value){
-		if(preg_match('`^\d{1,2}/\d{1,2}/\d{4}$`', $value)==TRUE){
-                    return true;
-                }
+		return preg_match('`^\d{1,2}/\d{1,2}/\d{4}$`', $value);
     }
     
     public function insererLesEchantillons($idVisiteur, $num, $medoc, $qte){
@@ -127,6 +125,22 @@ class PdoGsb{
          $rs = PdoGsb::$monPdo->query($req);
     }
     
+    public function getCoeffPatricien($id){//Pour l'utilisation de l'ajax
+       // retourne un tableau associatif contenant les informations d'un praticiens
+       $req="Select pra_coefnotoriete
+            from praticien  
+            where praticien.pra_num=".$id;
+       $rs = PdoGsb::$monPdo->query($req);
+       $ligne = $rs->fetchAll(PDO::FETCH_ASSOC);
+
+       $coeff = 0;
+       if(count($ligne) > 0){
+          $praticien = $ligne[0];
+          $coeff = $praticien['pra_coefnotoriete'];
+       }
+       return $coeff;
+   }
+   
     public function getLesEchantillons($numCR) {
         //Retourne le nom et la quantité des médicaments contenu dans le contrat(partie échantillons)
          $req="SELECT MED_DEPOTLEGAL, OFF_QTE
@@ -178,7 +192,5 @@ class PdoGsb{
 	    $ligne = $rs->fetch();
             return $ligne;
         }
-}   
-
-
-  ?>
+}
+?>

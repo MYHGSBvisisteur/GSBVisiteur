@@ -234,9 +234,9 @@ taille de caract�res l�g�rement sup�rieure � la normale */
    height:21px;
    text-align:left;
    vertical-align:top;
-   font-weight:bold;
+   /*font-weight:bold;*/
    border-bottom:0.1em solid #777777;
-   font-size:1.1em;
+   font-size:1.0em;
 } 
 
 #contenu td {
