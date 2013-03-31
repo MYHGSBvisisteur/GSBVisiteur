@@ -100,7 +100,7 @@ switch($action){
                         $medoc = $_POST['medoc'];
                     }
 
-                  if ($qte=="" || $medoc==FALSE){
+                  if (!is_numeric($qte) || $medoc==FALSE){
                       ajouterErreur("Certains paramètres n'ont pas été saisi!");
                                       include("vues/v_erreurs.php");
                   }else{
@@ -111,7 +111,6 @@ switch($action){
                 ?>
 
                 <script>
-                
                 jQuery(document).ready(function(){//Attendre que jQuery se charge
                 
                     $('#selectPraticiens').change(function() {

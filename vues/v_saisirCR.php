@@ -63,7 +63,7 @@
           <table border="0">
              <tr>
                 <th>Produit 1 : </th>  
-                <td><SELECT name="produit1" id="med1" size="1" onClick="medicament()">
+                <td><SELECT name="produit1" id="med1" size="1">
                         <option></option>
                     <?PHP foreach ($lesMedicaments as $ligne){
                             echo "<OPTION VALUE='" .$ligne['MED_DEPOTLEGAL']. "'>" .$ligne['MED_NOMCOMMERCIAL']. "</OPTION>";
@@ -72,7 +72,7 @@
              </tr>
              <tr>
                 <th>Produit 2 : </th>  
-                <td><SELECT name="produit2" id="med2" size="1" onClick="document.getElementsByName('produit2').selectedIndex = this;"onchange="document.getElementsByName('medoc').options.value=this;">
+                <td><SELECT name="produit2" id="med2" size="1">
                         <option></option>
                     <?PHP foreach ($lesMedicaments as $ligne){
                             echo "<OPTION VALUE='" .$ligne['MED_DEPOTLEGAL']. "'>" .$ligne['MED_NOMCOMMERCIAL']. "</OPTION>";
@@ -90,8 +90,8 @@
           <h2>Echantillons</h2>
           
           <SELECT name="medoc" id="med" size="1">
-              
           </SELECT>
+          
           <input type="text" name="qte" placeholder="Quantité">
           <input type="submit" name="Ajout" value="+">
           

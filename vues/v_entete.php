@@ -23,18 +23,6 @@
               var liste = document.getElementById("motif1");
               liste.disabled=true;
         }
-        
-        function medicament(){
-            /*var prod1 = document.getElementById("med1").selectedIndex;
-            var prod2 = document.getElementById("med2").selectedIndex;
-            
-            document.getElementsByName("medoc").options.value=prod1;
-            document.getElementsByName("medoc").options.value=prod2;*/
-            
-            var numero = $("#med1 option:selected").val();
-            
-            document.getElementsByName("medoc").options.value=numero;
-        }
     </SCRIPT>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <link href="./styles/styles.css" rel="stylesheet" type="text/css" />
