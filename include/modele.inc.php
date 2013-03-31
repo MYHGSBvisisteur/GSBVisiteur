@@ -85,7 +85,7 @@ class PdoGsb{
     }*/
     public function getLesCR() {//Slect que les données dont on a besoin pour consulter un CR. Pra_Num présent dans praticien et rapportVsite donc alias
      // retourne un tableau associatif contenant toutes les données des comptes rendus rassemblé par num de rapport
-         $req="SELECT R.RAP_NUM, RAP_DATE, RAP_BILAN, RAP_MOTIF, RAP_REMPLACANT, RAP_DOC, RAP_DATE_VISITE, P.PRA_NUM, PRA_NOM, PRA_COEFNOTORIETE, MED_NOMCOMMERCIAL, O.MED_DEPOTLEGAL, OFF_QTE
+         $req="SELECT R.RAP_NUM, RAP_DATE, RAP_BILAN, RAP_MOTIF, RAP_REMPLACANT, RAP_DOC, RAP_DATE_VISITE, P.PRA_NUM, PRA_NOM, PRA_COEFNOTORIETE, MED_NOMCOMMERCIAL
                FROM rapport_visite R, praticien P, medicament M, offrir O
                WHERE P.PRA_NUM = R.PRA_NUM 
                AND  O.MED_DEPOTLEGAL = M.MED_DEPOTLEGAL
@@ -115,7 +115,9 @@ class PdoGsb{
     }
     
     public function testDate($value){
-		return preg_match('`^\d{1,2}/\d{1,2}/\d{4}$`', $value);
+		if(preg_match('`^\d{1,2}/\d{1,2}/\d{4}$`', $value)){
+                    return $value;
+                }
     }
     
     public function insererLesEchantillons($idVisiteur, $num, $medoc, $qte){

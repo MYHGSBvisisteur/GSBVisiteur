@@ -15,9 +15,6 @@
           $remp=$lesCR[$i]['RAP_REMPLACANT'];
           $dateVisite=$lesCR[$i]['RAP_DATE_VISITE'];
           $bilan=$lesCR[$i]['RAP_BILAN'];
-          $produit1=$lesCR[$i]['MED_NOMCOMMERCIAL'];
-          $produit2=$lesCR[$i]['MED_NOMCOMMERCIAL'];
-          $qte=$lesCR[$i]['OFF_QTE'];
     ?>
     
     <h2>Rapport de visite </h2>

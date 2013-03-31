@@ -24,15 +24,15 @@
               liste.disabled=true;
         }
         
-        function medoc(){
-           /* var prod1 = document.getElementById("med1");
-            var prod2 = document.getElementById("med2");
+        function medicament(){
+            /*var prod1 = document.getElementById("med1").selectedIndex;
+            var prod2 = document.getElementById("med2").selectedIndex;
             
-            alert("Fonctionne");
-            document.getElementsByName("medoc").value=prod1;
-            document.getElementsByName("medoc").value=prod2;
-*/            
-            var numero = $("#med1").val();
+            document.getElementsByName("medoc").options.value=prod1;
+            document.getElementsByName("medoc").options.value=prod2;*/
+            
+            var numero = $("#med1 option:selected").val();
+            
             document.getElementsByName("medoc").options.value=numero;
         }
     </SCRIPT>
